@@ -1,6 +1,7 @@
 /* AADL site — shared behaviour (no dependencies) */
 (function () {
   'use strict';
+  document.documentElement.classList.add('js');
 
   // Navigation: solid background after scrolling, mobile toggle, current page marker
   var nav = document.querySelector('.nav');
@@ -36,6 +37,7 @@
   });
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var desktop = window.matchMedia && window.matchMedia('(min-width: 901px) and (hover: hover) and (pointer: fine)').matches;
 
   // Reveal on scroll: tag common blocks automatically (only when the observer exists, so no-JS pages stay visible)
   if ('IntersectionObserver' in window && !reduceMotion) {
@@ -47,6 +49,17 @@
     document.querySelectorAll('.grid, .figure-grid, .timeline, .stats').forEach(function (group) {
       Array.prototype.forEach.call(group.children, function (child, i) { if (child.classList.contains('reveal')) child.style.setProperty('--i', Math.min(i, 6)); });
     });
+    if (desktop) {
+      document.querySelectorAll('.split').forEach(function (sp) {
+        var kids = Array.prototype.filter.call(sp.children, function (k) { return k.classList.contains('reveal'); });
+        if (kids.length === 2) {
+          var rev = sp.classList.contains('split--reverse');
+          kids[0].classList.add(rev ? 'reveal--right' : 'reveal--left');
+          kids[1].classList.add(rev ? 'reveal--left' : 'reveal--right');
+        }
+      });
+      document.querySelectorAll('.figure-grid > .figure.reveal, .vision > .figure.reveal').forEach(function (fg) { fg.classList.add('reveal--scale'); });
+    }
   }
   var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length) {
@@ -54,7 +67,7 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
@@ -134,10 +147,16 @@
   top.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
   document.body.appendChild(top);
   top.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }); });
+  var heroContent = document.querySelector('.hero__content');
   function onScrollFx() {
     var h = document.documentElement.scrollHeight - window.innerHeight;
     bar.style.width = (h > 0 ? Math.min(100, window.scrollY / h * 100) : 0) + '%';
     top.classList.toggle('is-visible', window.scrollY > 600);
+    if (heroContent && desktop && !reduceMotion) {
+      var y = Math.min(window.scrollY, 900);
+      heroContent.style.translate = '0 ' + (y * 0.18) + 'px';
+      heroContent.style.opacity = String(Math.max(0, 1 - y / 650));
+    }
   }
   onScrollFx(); window.addEventListener('scroll', onScrollFx, { passive: true });
 
@@ -180,11 +199,36 @@
     }, 2600);
   }
   var art = document.querySelector('.hero__art');
-  if (art && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+  if (art && !reduceMotion && desktop) {
+    var px = 0, py = 0;
+    function placeArt() { art.style.translate = px + 'px ' + (py + Math.min(window.scrollY, 900) * 0.10) + 'px'; }
     document.querySelector('.hero').addEventListener('pointermove', function (e) {
       var r = e.currentTarget.getBoundingClientRect();
       var dx = (e.clientX - r.left) / r.width - 0.5, dy = (e.clientY - r.top) / r.height - 0.5;
-      art.style.translate = (dx * -18) + 'px ' + (dy * -12) + 'px';
+      px = dx * -30; py = dy * -20; placeArt();
+    });
+    window.addEventListener('scroll', placeArt, { passive: true });
+  }
+
+  // Desktop only: card tilt and cursor spotlight
+  if (desktop && !reduceMotion) {
+    document.querySelectorAll('.pillar, .person, .paper, .card, .award, .stat').forEach(function (el) {
+      el.classList.add('tilt');
+      el.addEventListener('pointerenter', function () { el.classList.add('is-tilting'); });
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        var rx = ((e.clientY - r.top) / r.height - 0.5) * -5, ry = ((e.clientX - r.left) / r.width - 0.5) * 5;
+        el.style.transform = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateY(-4px)';
+      });
+      el.addEventListener('pointerleave', function () { el.style.transform = ''; setTimeout(function () { el.classList.remove('is-tilting'); }, 150); });
+    });
+    document.querySelectorAll('.card--navy, .panel--navy, .pillar-head, .contact__item, .stat').forEach(function (el) {
+      el.classList.add('spot');
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+        el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+      });
     });
   }
 
