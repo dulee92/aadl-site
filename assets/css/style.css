@@ -112,7 +112,7 @@ ul, ol { padding-left: 1.2em; }
   mask-image: linear-gradient(180deg, rgba(0,0,0,.9), transparent 85%);
 }
 .hero__art {
-  position: absolute; right: -6%; bottom: 6%; width: min(46vw, 820px); opacity: .95; pointer-events: none; will-change: transform;
+  position: absolute; right: -2%; bottom: 6%; width: min(46vw, 820px); opacity: .95; pointer-events: none; will-change: transform;
   filter: drop-shadow(0 30px 40px rgba(0,0,0,.45));
   animation: float 9s ease-in-out infinite;
 }
