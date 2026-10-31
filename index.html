@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AADL — Advanced Aircraft Design Laboratory, Hanseo University</title>
+  <meta name="description" content="Advanced Aircraft Design Laboratory (AADL) at Hanseo University: conceptual design of UAM, UAV and unconventional aircraft, electric propulsion modeling, mission-level operation, and experiment-based analysis.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<!-- ===== Navigation ===== -->
+<header class="nav" id="top">
+  <div class="container">
+    <a class="nav__brand" href="index.html" aria-label="AADL home">
+      <img class="logo-light" src="assets/img/logo-aadl-white.png" alt="AADL — Advanced Aircraft Design Laboratory">
+      <img class="logo-dark" src="assets/img/logo-aadl.png" alt="">
+    </a>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="people.html">People</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="join.html">Join us</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <img class="hero__art" src="assets/img/hero-fleet.svg" alt="" aria-hidden="true">
+  <div class="container">
+    <div class="hero__content">
+      <p class="hero__eyebrow">Hanseo University · Dept. of Unmanned Aircraft Systems</p>
+      <img class="hero__logo" src="assets/img/logo-aadl-white.png" alt="AADL — Advanced Aircraft Design Laboratory">
+      <h1>Designing next-generation aircraft, <em>from concept to mission.</em></h1>
+      <p class="hero__lead">Simulation-based design, mission-level operation, and experiment-based analysis for UAM, UAVs, and beyond.</p>
+      <p class="hero__rotate">Designing for <span class="rotate" data-words="urban air mobility|wildfire suppression UAVs|Mars rotorcraft|micro UAVs|electric propulsion systems">urban air mobility</span></p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="research.html">Explore our research</a>
+        <a class="btn btn--light" href="join.html">Join AADL</a>
+      </div>
+    </div>
+  </div>
+  <a class="hero__scroll" href="#vision" aria-label="Scroll down"><span class="mouse"></span>Scroll down</a>
+</section>
+
+<!-- ===== Main (side navigation + sections) ===== -->
+<main class="section">
+  <div class="container with-sidenav">
+    <nav aria-label="Page sections">
+      <ul class="sidenav">
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#research">Research Focus</a></li>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#join">Join us</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <!-- Vision -->
+      <section class="subsection" id="vision">
+        <div class="section__head reveal">
+          <p class="eyebrow">Vision</p>
+          <h2>AADL designs aircraft as systems and validates them by experiment.</h2>
+          <p class="lead">AADL develops conceptual design methods for next-generation aircraft, covering configuration, aerodynamics, electric propulsion, weight, cost, and mission operation, and validates them with experiments.</p>
+          <p class="ko">AADL은 차세대 항공기 개념설계와 이를 구성하는 형상·공력·추진시스템·중량·경제성·임무 운용 관련 연구를 수행합니다.</p>
+        </div>
+        <div class="vision">
+          <ul class="vision__list reveal">
+            <li><strong>Goal: from concept to mission.</strong><p>We turn mission requirements into sized aircraft concepts that can be analyzed, and we evaluate how they perform in the missions they are built for.</p></li>
+            <li><strong>Approach 1: from sizing one aircraft to operating a system of systems.</strong><p>Our in-house design code RISPECT+ sizes UAM, UAV, and unconventional aircraft; mission-oriented measures of effectiveness then decide how many aircraft to deploy, where, and when.</p></li>
+            <li><strong>Approach 2: from simulation alone to models validated by experiment.</strong><p>Battery, fuel-cell, and motor–propeller tests reveal unmodeled physical phenomena, which we feed back into the design models with physics-based models and Gaussian process regression.</p></li>
+            <li><strong>Approach 3: from manual design iteration to digital engineering.</strong><p>Large-language-model agents, MBSE data structures, and graph-based feasibility models shorten the loop from requirement to verified design.</p></li>
+            <li><strong>Application: from urban air mobility to Mars.</strong><p>Lift+cruise UAM aircraft, wildfire suppression UAVs, micro UAVs, and Mars rotorcraft share one design framework.</p></li>
+          </ul>
+          <figure class="figure figure--card reveal">
+            <img src="assets/img/hero/uam-vertiport.jpg" alt="Illustration of a UAM aircraft approaching a city vertiport">
+            <figcaption>Urban air mobility is one of the mission contexts AADL designs for, together with wildfire suppression, micro UAVs, and Mars exploration.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Research focus -->
+      <section class="subsection" id="research">
+        <div class="section__head reveal">
+          <p class="eyebrow">Research Focus</p>
+          <h2>Three research areas, one design framework</h2>
+          <p class="lead">Every project at AADL asks one of six questions. The answers connect our design code, our mission operation framework, and our test benches.</p>
+        </div>
+        <div class="grid grid--3">
+          <article class="pillar reveal">
+            <span class="pillar__num">01</span>
+            <span class="pillar__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></span>
+            <h3>Simulation-Based System Design</h3>
+            <ul class="pillar__q">
+              <li>How to generalize UAM/UAV aircraft system design?</li>
+              <li>How to improve conceptual design fidelity?</li>
+            </ul>
+            <ul class="pillar__a">
+              <li>Development of the RISPECT+ conceptual design tool</li>
+              <li>Physics-based electric propulsion system modeling</li>
+            </ul>
+          </article>
+          <article class="pillar reveal">
+            <span class="pillar__num">02</span>
+            <span class="pillar__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 7l3 3M17 7l-3 3M7 17l3-3M17 17l-3-3"/></svg></span>
+            <h3>Simulation-Based System Operation</h3>
+            <ul class="pillar__q">
+              <li>How to optimize aircraft operations?</li>
+              <li>How to coordinate multiple aircraft for missions?</li>
+            </ul>
+            <ul class="pillar__a">
+              <li>Mission-oriented measures of effectiveness</li>
+              <li>Optimal deployment and strategies for missions</li>
+            </ul>
+          </article>
+          <article class="pillar reveal">
+            <span class="pillar__num">03</span>
+            <span class="pillar__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-6 9a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-6-9V3"/><path d="M7 16h10"/></svg></span>
+            <h3>Experiment-Based System Analysis</h3>
+            <ul class="pillar__q">
+              <li>How to capture unmodeled physical phenomena?</li>
+              <li>How to improve simulation fidelity through experimental data?</li>
+            </ul>
+            <ul class="pillar__a">
+              <li>Battery and motor–propeller testing</li>
+              <li>Physics-based analysis models with Gaussian process regression</li>
+            </ul>
+          </article>
+        </div>
+        <div class="mt-3 reveal">
+          <p class="label">Research keywords</p>
+          <div class="chips">
+            <span class="chip">Aircraft Conceptual Design</span><span class="chip">Electric Propulsion System Modeling</span><span class="chip">UAM / AAM</span><span class="chip">System of Systems</span><span class="chip">Measures of Effectiveness</span><span class="chip">Battery Performance Modeling</span><span class="chip">Motor Current Signature Analysis</span><span class="chip">AI-Based Conceptual Design</span><span class="chip">MBSE / Digital Engineering</span>
+          </div>
+        </div>
+        <div class="mt-3 reveal">
+          <a class="btn btn--ghost" href="research.html">See research details</a>
+        </div>
+      </section>
+
+      <!-- Highlights -->
+      <section class="subsection" id="highlights">
+        <div class="section__head reveal">
+          <p class="eyebrow">Highlights</p>
+          <h2>Selected results</h2>
+        </div>
+        <div class="grid grid--2 reveal">
+          <article class="card card--navy">
+            <div class="card__body">
+              <span class="card__meta">2025 · German Aerospace Center (DLR)</span>
+              <h3 class="card__title">COLOSSUS X-Challenge 2025 — 2nd place</h3>
+              <p class="card__text">System of Systems-Driven Wildfire Suppression Aircraft Design Framework. Final ranking: 1st Purdue University, 2nd Hanseo University, 3rd Georgia Institute of Technology.</p>
+            </div>
+          </article>
+          <article class="card card--navy">
+            <div class="card__body">
+              <span class="card__meta">2024 · Chungcheongnam-do</span>
+              <h3 class="card__title">Excellence Award, Disaster and Safety Technology Competition</h3>
+              <p class="card__text">산불 진압을 위한 무인 이종 드론군 개발 및 디지털 트윈 시스템 구축</p>
+            </div>
+          </article>
+        </div>
+        <div class="stats stats--light mt-3 reveal">
+          <div class="stat"><div class="stat__num">7</div><div class="stat__label">International journal papers</div><div class="stat__note">Journal of Aircraft, Applied Energy, Energy, IEEE Access, IEEE Trans. Transportation Electrification, IJASS</div></div>
+          <div class="stat"><div class="stat__num">14</div><div class="stat__label">International conference papers</div><div class="stat__note">ERF, AIAA AVIATION, ICAS, EASN, IEEE ITEC, ARF, APISAT</div></div>
+          <div class="stat"><div class="stat__num">8</div><div class="stat__label">Research projects</div><div class="stat__note">MOTIE, NRF, KASA, DAPA, KITECH, KARI, Chungnam Institute</div></div>
+          <div class="stat"><div class="stat__num">6</div><div class="stat__label">Awards</div><div class="stat__note">DLR, Chungcheongnam-do, KSAS, KNST, Vertical Flight Society</div></div>
+        </div>
+        <p class="small muted mt-2 reveal">Publication and award counts cover Prof. Donguk Lee's work, including papers before AADL was founded in 2023.</p>
+        <p class="small muted mt-2 reveal">Collaborating with Seoul National University, KITECH, KARI, DLR, and KASA.</p>
+      </section>
+
+      <!-- News -->
+      <section class="subsection" id="news">
+        <div class="section__head reveal">
+          <p class="eyebrow">News</p>
+          <h2>Latest from the lab</h2>
+        </div>
+        <div class="grid grid--3">
+          <a class="card reveal" href="news.html#n-2026-09-17">
+            <div class="card__media card__media--contain"><img src="assets/img/research/rispect-ai-ui.png" alt="RISPECT+ Aircraft Design AI interface" loading="lazy"></div>
+            <div class="card__body">
+              <span class="card__meta">17 Sep 2026 · Conference</span>
+              <h3 class="card__title">Agentic AI workflow for aircraft conceptual design presented at ICAS 2026, Sydney</h3>
+              <p class="card__text">"Developing an Agentic AI Workflow for Automated Conceptual Design of Aircraft Using RISPECT+".</p>
+            </div>
+          </a>
+          <a class="card reveal" href="news.html#n-2026-09-01">
+            <div class="card__media card__media--contain"><img src="assets/img/research/uam-lift-cruise-config.png" alt="Lift+cruise UAM configuration" loading="lazy"></div>
+            <div class="card__body">
+              <span class="card__meta">Sep 2026 · Journal</span>
+              <h3 class="card__title">Turboelectric propulsion analysis method published in Energy</h3>
+              <p class="card__text">"Improved turboelectric propulsion system analysis method for electrified aircraft conceptual design", Energy, Vol. 360.</p>
+            </div>
+          </a>
+          <a class="card reveal" href="news.html#n-2026-07-01">
+            <div class="card__media card__media--contain"><img src="assets/img/research/mbse-data-structure.png" alt="MBSE data-structure diagram" loading="lazy"></div>
+            <div class="card__body">
+              <span class="card__meta">Jul 2026 · Project</span>
+              <h3 class="card__title">New MOTIE project on drone reference models starts</h3>
+              <p class="card__text">도심물류 및 민군융합드론 참조모델 기술 개발 (2026.07 – 2028.12), AADL as principal investigator.</p>
+            </div>
+          </a>
+        </div>
+        <div class="mt-3 reveal"><a class="btn btn--ghost" href="news.html">See all news</a></div>
+      </section>
+
+      <!-- Join -->
+      <section class="subsection" id="join">
+        <div class="panel--navy">
+          <div class="section__head section__head--tight reveal">
+            <p class="eyebrow">Join us</p>
+            <h2>We are looking for researchers who want to design the aircraft of tomorrow.</h2>
+            <p class="lead">AADL welcomes graduate and undergraduate students interested in aircraft conceptual design, electric propulsion, mission-level operation analysis, and AI-based design.</p>
+            <p class="ko">항공기 개념설계, 전기추진, AI 기반 설계에 관심 있는 대학원생과 학부연구생을 상시 모집합니다.</p>
+          </div>
+          <div class="contact reveal">
+            <div class="contact__item"><h3>E-mail</h3><p><a href="mailto:dulee@hanseo.ac.kr">dulee@hanseo.ac.kr</a></p></div>
+            <div class="contact__item"><h3>Phone</h3><p><a href="tel:+82416716282">+82-41-671-6282</a></p></div>
+            <div class="contact__item"><h3>Address</h3><p>Room 213, Aviation Technical Education Center, 236-49 Gomseom-ro, Nam-myeon, Taean-gun, Chungcheongnam-do, Republic of Korea</p></div>
+          </div>
+          <div class="mt-3 reveal"><a class="btn btn--primary" href="join.html">How to apply</a></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <img src="assets/img/logo-aadl-white.png" alt="AADL">
+        <p>Advanced Aircraft Design Laboratory<br>차세대비행체설계연구실<br>Department of Unmanned Aircraft Systems, Hanseo University</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="people.html">People</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="projects.html">Projects &amp; Awards</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="join.html">Join us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:dulee@hanseo.ac.kr">dulee@hanseo.ac.kr</a></li>
+          <li>+82-41-671-6282</li>
+          <li>Room 213, Aviation Technical Education Center,<br>236-49 Gomseom-ro, Nam-myeon, Taean-gun,<br>Chungcheongnam-do, Republic of Korea</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Advanced Aircraft Design Laboratory, Hanseo University. All rights reserved.</span>
+      <span class="footer__univ"><img src="assets/img/logo-hanseo.png" alt="Hanseo University"></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Announcement popup ===== -->
+<div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+  <div class="popup__card">
+    <div class="popup__bar"></div>
+    <button class="popup__close" data-popup-close aria-label="닫기">✕</button>
+    <div class="popup__body">
+      <p class="popup__eyebrow">연구학생 모집 · Recruiting</p>
+      <h3 id="popup-title">AADL is recruiting graduate and undergraduate students.</h3>
+      <ul>
+        <li>대상 : 한서대학교 재학생 또는 휴학생</li>
+        <li>학부연구생 활동을 지속할 수 있는 학생 (우대사항: 성적우수자, 군필자)</li>
+        <li>3, 4학년의 경우, 대학원 진학을 희망하는 학생</li>
+      </ul>
+      <p class="small mb-0">문의 : <a href="mailto:dulee@hanseo.ac.kr">dulee@hanseo.ac.kr</a> / 041-671-6282</p>
+    </div>
+    <div class="popup__foot">
+      <a href="join.html" class="btn btn--primary btn--sm">How to apply</a>
+      <button data-popup-never>더이상 안보기</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
