@@ -390,7 +390,7 @@ a.card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: v
 }
 
 /* Print */
-@media print { .nav, .popup, .hero__scroll, .footer__bottom, .progress, .to-top { display: none !important; } .reveal { opacity: 1 !important; transform: none !important; } }
+@media print { .nav, .popup, .hero__scroll, .footer__bottom, .progress, .to-top { display: none !important; } .reveal { opacity: 1 !important; transform: none !important; transition: none !important; } }
 
 /* --- additions after review (2026-11-01) --- */
 .section--navy .ko, .panel--navy .ko { color: rgba(255,255,255,.75); }
