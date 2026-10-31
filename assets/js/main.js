@@ -39,7 +39,7 @@
 
   // Reveal on scroll: tag common blocks automatically (only when the observer exists, so no-JS pages stay visible)
   if ('IntersectionObserver' in window && !reduceMotion) {
-    var autoSel = '.topic, .card, .person, .award, .pillar, .pub-group, .timeline__item, .stat, .paper, .section__head, .figure-grid > .figure, .split > *';
+    var autoSel = '.topic, .card, .person, .award, .pillar, .pub-group, .timeline__item, .stat, .paper, .section__head, .figure-grid > .figure, .split > *, .vision__list, .vision > .figure, .contact, .chips, .notice, .table-wrap, .anchor-nav, .pi, .group-head';
     document.querySelectorAll(autoSel).forEach(function (el) {
       if (el.closest('.hero') || el.closest('.nav') || el.closest('.popup')) return;
       if (!el.classList.contains('reveal')) el.classList.add('reveal');
@@ -84,10 +84,19 @@
     var KEY = 'aadl-popup-dismissed-v1';
     var dismissed = false;
     try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}
+    var popupOpener = null;
     if (!dismissed) {
-      setTimeout(function () { popup.classList.add('is-open'); }, 700);
+      setTimeout(function () {
+        popupOpener = document.activeElement;
+        popup.classList.add('is-open');
+        var first = popup.querySelector('.popup__close'); if (first) first.focus();
+      }, 700);
     }
-    function closePopup() { popup.classList.remove('is-open'); }
+    function closePopup() {
+      if (!popup.classList.contains('is-open')) return;
+      popup.classList.remove('is-open');
+      if (popupOpener && popupOpener.focus && popupOpener !== document.body) popupOpener.focus();
+    }
     popup.querySelectorAll('[data-popup-close]').forEach(function (b) { b.addEventListener('click', closePopup); });
     var never = popup.querySelector('[data-popup-never]');
     if (never) never.addEventListener('click', function () {
@@ -138,16 +147,24 @@
     var lb = document.createElement('div'); lb.className = 'lightbox'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', 'Enlarged figure');
     lb.innerHTML = '<button class="lightbox__close" type="button" aria-label="Close">✕</button><img alt=""><figcaption></figcaption>';
     document.body.appendChild(lb);
-    var lbImg = lb.querySelector('img'), lbCap = lb.querySelector('figcaption');
-    function closeLb() { lb.classList.remove('is-open'); lbImg.src = ''; }
+    var lbImg = lb.querySelector('img'), lbCap = lb.querySelector('figcaption'), lbClose = lb.querySelector('.lightbox__close'), lbOpener = null;
+    function closeLb() {
+      if (!lb.classList.contains('is-open')) return;
+      lb.classList.remove('is-open'); lbImg.src = '';
+      if (lbOpener && lbOpener.focus) lbOpener.focus();
+    }
     figImgs.forEach(function (img) {
-      img.setAttribute('data-lightbox', '');
-      img.addEventListener('click', function () {
+      img.setAttribute('data-lightbox', ''); img.tabIndex = 0; img.setAttribute('role', 'button');
+      img.setAttribute('aria-label', (img.alt || 'Figure') + ' (press Enter to enlarge)');
+      function openLb() {
+        lbOpener = img;
         lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt || '';
         var cap = img.closest('figure') && img.closest('figure').querySelector('figcaption');
         lbCap.textContent = cap ? cap.textContent : '';
-        lb.classList.add('is-open');
-      });
+        lb.classList.add('is-open'); lbClose.focus();
+      }
+      img.addEventListener('click', openLb);
+      img.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(); } });
     });
     lb.addEventListener('click', function (e) { if (e.target !== lbImg) closeLb(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
@@ -177,7 +194,7 @@
     var vio = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         var v = e.target;
-        if (e.isIntersecting) { v.play().catch(function () {}); } else { v.pause(); }
+        if (e.isIntersecting && !reduceMotion) { v.play().catch(function () {}); } else { v.pause(); }
       });
     }, { threshold: 0.25 });
     vids.forEach(function (v) { vio.observe(v); });

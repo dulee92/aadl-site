@@ -112,7 +112,7 @@ ul, ol { padding-left: 1.2em; }
   mask-image: linear-gradient(180deg, rgba(0,0,0,.9), transparent 85%);
 }
 .hero__art {
-  position: absolute; right: -2%; bottom: 4%; width: min(58vw, 900px); opacity: .95; pointer-events: none; will-change: transform;
+  position: absolute; right: -6%; bottom: 6%; width: min(46vw, 820px); opacity: .95; pointer-events: none; will-change: transform;
   filter: drop-shadow(0 30px 40px rgba(0,0,0,.45));
   animation: float 9s ease-in-out infinite;
 }
@@ -359,7 +359,7 @@ a.card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: v
 .footer { background: #07152a; color: rgba(255,255,255,.72); padding: 3rem 0 2rem; font-size: .9rem; }
 .footer__top { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: start; }
 .footer__brand img { height: 36px; width: auto; margin-bottom: .8rem; }
-.footer h4 { color: #fff; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .7rem; }
+.footer h4, .footer .footer__head { color: #fff; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; margin: 0 0 .7rem; }
 .footer a { color: rgba(255,255,255,.85); }
 .footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .35rem; }
 .footer__bottom { margin-top: 2.2rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.1); display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; }
@@ -390,7 +390,7 @@ a.card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: v
 }
 
 /* Print */
-@media print { .nav, .popup, .hero__scroll, .footer__bottom { display: none !important; } }
+@media print { .nav, .popup, .hero__scroll, .footer__bottom, .progress, .to-top { display: none !important; } .reveal { opacity: 1 !important; transform: none !important; } }
 
 /* --- additions after review (2026-11-01) --- */
 .section--navy .ko, .panel--navy .ko { color: rgba(255,255,255,.75); }
@@ -419,11 +419,11 @@ a.card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: v
 .hero__rotate .rotate { display: inline-block; min-width: 12ch; color: #ffb565; font-weight: 600; transition: opacity .35s ease, transform .35s ease; }
 .hero__rotate .rotate.is-out { opacity: 0; transform: translateY(6px); }
 .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--accent), var(--sky)); z-index: 60; transition: width .1s linear; }
-.to-top { position: fixed; right: 1.2rem; bottom: 1.2rem; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--navy); color: #fff; box-shadow: var(--shadow); cursor: pointer; display: grid; place-items: center; opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .25s, transform .25s, background .2s; z-index: 55; }
-.to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.to-top { position: fixed; right: 1.2rem; bottom: 1.2rem; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--navy); color: #fff; box-shadow: var(--shadow); cursor: pointer; display: grid; place-items: center; opacity: 0; visibility: hidden; transform: translateY(12px); pointer-events: none; transition: opacity .25s, transform .25s, background .2s, visibility 0s .25s; z-index: 55; }
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; pointer-events: auto; transition: opacity .25s, transform .25s, background .2s, visibility 0s; }
 .to-top:hover { background: var(--blue-2); }
 .to-top svg { width: 20px; height: 20px; }
-.pillar, .person, .award, .stat, .paper { transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
+.pillar, .person, .award, .stat, .paper { transition: opacity .6s ease, transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
 .pillar:hover, .person:hover, .award:hover, .paper:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: #c9d6e4; }
 .stats--light .stat:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
 .figure img[data-lightbox] { cursor: zoom-in; transition: transform .25s ease, box-shadow .25s ease; }
@@ -455,3 +455,6 @@ a.card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: v
 .paper__title { font-size: 1rem; margin: 0 0 .45rem; line-height: 1.35; }
 .paper__title a { color: var(--navy); }
 .paper__text { font-size: .93rem; color: var(--ink-2); margin: 0; }
+
+@media (max-width: 1500px) { .hero__art { opacity: .7; } }
+.figure video { width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--line); background: #000; }
