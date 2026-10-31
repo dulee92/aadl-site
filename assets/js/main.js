@@ -160,9 +160,10 @@
     top.classList.toggle('is-visible', window.scrollY > 600);
     if (heroContent && desktop && !reduceMotion) {
       var y = Math.min(window.scrollY, 900);
-      heroContent.style.translate = '0 ' + (y * 0.12) + 'px';
+      heroContent.style.translate = '0 ' + (y * 0.08) + 'px';
       heroContent.style.opacity = String(Math.max(0, 1 - y / 800));
-      var side = document.querySelector('.hero__side'); if (side) side.style.translate = '0 ' + (y * 0.06) + 'px';
+      var side = document.querySelector('.hero__side'); if (side) side.style.translate = '0 ' + (y * 0.04) + 'px';
+      var cue = document.querySelector('.hero__scroll'); if (cue) cue.style.opacity = String(Math.max(0, 1 - y / 120));
     }
   }
   onScrollFx(); window.addEventListener('scroll', onScrollFx, { passive: true });
@@ -171,9 +172,9 @@
   var figImgs = document.querySelectorAll('.figure img');
   if (figImgs.length) {
     var lb = document.createElement('div'); lb.className = 'lightbox'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', 'Enlarged figure');
-    lb.innerHTML = '<button class="lightbox__close" type="button" aria-label="Close">✕</button><img alt=""><figcaption></figcaption>';
+    lb.innerHTML = '<button class="lightbox__close" type="button" aria-label="Close">✕</button><img alt=""><p class="lightbox__cap"></p>';
     document.body.appendChild(lb);
-    var lbImg = lb.querySelector('img'), lbCap = lb.querySelector('figcaption'), lbClose = lb.querySelector('.lightbox__close'), lbOpener = null;
+    var lbImg = lb.querySelector('img'), lbCap = lb.querySelector('.lightbox__cap'), lbClose = lb.querySelector('.lightbox__close'), lbOpener = null;
     function closeLb() {
       if (!lb.classList.contains('is-open')) return;
       lb.classList.remove('is-open'); lbImg.src = '';
@@ -223,7 +224,9 @@
       if (clearBtn) clearBtn.hidden = !any;
       chips.forEach(function (c) { var kv = c.getAttribute('data-filter').split(':'); c.setAttribute('aria-pressed', active[kv[0]].indexOf(kv[1]) > -1 ? 'true' : 'false'); });
       var h = [].concat(active.type.map(function (v) { return 'type:' + v; }), active.year.map(function (v) { return 'year:' + v; }), active.tag.map(function (v) { return 'tag:' + v; })).join(',');
-      if (history.replaceState) history.replaceState(null, '', h ? '#f=' + h : location.pathname + location.search);
+      var want = h ? '#f=' + h : '';
+      var isFilterHash = location.hash.indexOf('#f=') === 0;
+      if (history.replaceState && (want || isFilterHash) && location.hash !== want) history.replaceState(null, '', want || (location.pathname + location.search));
     }
     chips.forEach(function (c) {
       c.addEventListener('click', function () {
@@ -234,14 +237,36 @@
     });
     if (clearBtn) clearBtn.addEventListener('click', function () { active = { type: [], year: [], tag: [] }; apply(); });
     function fromHash() {
+      if (location.hash.indexOf('#f=') !== 0) return;
       active = { type: [], year: [], tag: [] };
-      if (location.hash.indexOf('#f=') === 0) {
-        location.hash.slice(3).split(',').forEach(function (kv) { var p = kv.split(':'); if (active[p[0]] && p[1] && active[p[0]].indexOf(p[1]) < 0) active[p[0]].push(p[1]); });
-      }
+      location.hash.slice(3).split(',').forEach(function (kv) { var p = kv.split(':'); if (active[p[0]] && p[1] && active[p[0]].indexOf(p[1]) < 0) active[p[0]].push(p[1]); });
       apply();
     }
     window.addEventListener('hashchange', fromHash);
-    fromHash();
+    fromHash(); apply();
+  }
+
+  // Keep Tab inside open dialogs (popup, lightbox)
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    var dlg = document.querySelector('.popup.is-open, .lightbox.is-open');
+    if (!dlg) return;
+    var f = dlg.querySelectorAll('button, [href], input, [tabindex]:not([tabindex="-1"])');
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  // Footer partner strip: pause / play
+  var bandBtn = document.querySelector('[data-band-toggle]');
+  if (bandBtn) {
+    var band = bandBtn.closest('.band');
+    if (reduceMotion || !window.matchMedia('(hover: hover)').matches) { bandBtn.hidden = true; }
+    bandBtn.addEventListener('click', function () {
+      var paused = band.classList.toggle('is-paused');
+      bandBtn.setAttribute('aria-pressed', paused ? 'true' : 'false'); bandBtn.textContent = paused ? 'Play' : 'Pause';
+    });
   }
 
   // Lazy-play muted videos only when visible

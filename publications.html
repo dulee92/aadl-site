@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-ei/b2Mz3F5J8nqTvpKS89CkzDCuD7Cc+/F+OsaPUKItzHgLNKnGq3rjtYq/B7RnO" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261101f">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261101g">
   <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -50,18 +50,13 @@
   <section class="section">
     <div class="container">
 
-      <nav class="anchor-nav" aria-label="Publication groups">
-        <a href="#journals-intl">International Journals</a>
-        <a href="#journals-domestic">Domestic Journals</a>
-        <a href="#conf-intl">International Conferences</a>
-        <a href="#conf-domestic">Domestic Conferences</a>
-        <a href="#patents">Patents</a>
-      </nav>
+      
       <div class="filters" id="filters">
         <div class="filters__row"><span class="filters__label">Type</span><div class="chips"><button class="chip" type="button" aria-pressed="false" data-filter="type:journal">Journal</button><button class="chip" type="button" aria-pressed="false" data-filter="type:conference">Conference</button><button class="chip" type="button" aria-pressed="false" data-filter="type:patent">Patent</button></div></div>
         <div class="filters__row"><span class="filters__label">Year</span><div class="chips"><button class="chip" type="button" aria-pressed="false" data-filter="year:2026">2026</button><button class="chip" type="button" aria-pressed="false" data-filter="year:2025">2025</button><button class="chip" type="button" aria-pressed="false" data-filter="year:2024">2024</button><button class="chip" type="button" aria-pressed="false" data-filter="year:2023">2023</button><button class="chip" type="button" aria-pressed="false" data-filter="year:2022">2022</button><button class="chip" type="button" aria-pressed="false" data-filter="year:2021">2021</button><button class="chip" type="button" aria-pressed="false" data-filter="year:2020">2020</button><button class="chip" type="button" aria-pressed="false" data-filter="year:2019">2019</button><button class="chip" type="button" aria-pressed="false" data-filter="year:2018">2018</button><button class="chip" type="button" aria-pressed="false" data-filter="year:2017">2017</button></div></div>
         <div class="filters__row"><span class="filters__label">Topic</span><div class="chips"><button class="chip" type="button" aria-pressed="false" data-filter="tag:uam-evtol">UAM & eVTOL</button><button class="chip" type="button" aria-pressed="false" data-filter="tag:hybrid">Hybrid-electric & turboelectric</button><button class="chip" type="button" aria-pressed="false" data-filter="tag:fuel-cell">Fuel cell</button><button class="chip" type="button" aria-pressed="false" data-filter="tag:battery">Battery</button><button class="chip" type="button" aria-pressed="false" data-filter="tag:propeller">Propeller & motor</button><button class="chip" type="button" aria-pressed="false" data-filter="tag:wildfire">Wildfire operations</button><button class="chip" type="button" aria-pressed="false" data-filter="tag:mars-micro">Mars & micro UAV</button><button class="chip" type="button" aria-pressed="false" data-filter="tag:ai">AI & design tools</button><button class="chip" type="button" aria-pressed="false" data-filter="tag:noise">Noise & rotor aerodynamics</button><button class="chip" type="button" aria-pressed="false" data-filter="tag:cost">Cost, market & eCTOL</button><button class="chip" type="button" aria-pressed="false" data-filter="tag:compound">Compound rotorcraft & gyroplane</button><button class="chip" type="button" aria-pressed="false" data-filter="tag:delivery">Delivery & military UAV</button></div></div>
         <div class="filters__status"><span class="filters__count" aria-live="polite" id="filter-count"></span><button class="chip chip--clear" type="button" id="filter-clear" hidden>Clear filters</button></div>
+        <p class="jump">Jump to: <a href="#journals-intl">International journals</a> · <a href="#journals-domestic">Domestic journals</a> · <a href="#conf-intl">International conferences</a> · <a href="#conf-domestic">Domestic conferences</a> · <a href="#patents">Patents</a></p>
       </div>
       
 
@@ -204,7 +199,7 @@
               <span class="pub__meta">Cho, J., <strong>Lee, D.</strong>, Park, J., Jeong, T., and Yee, K., <span class="pub__venue">Proceedings of the 2024 Asia-Pacific International Symposium on Aerospace Technology</span>, Australia, Oct. 28–30, 2024.</span>
             </div>
           </li>
-          <li class="pub" data-type="conference" data-year="2022" data-tags="cost">
+          <li class="pub" data-type="conference" data-year="2022" data-tags="uam-evtol cost">
             <div>
               <span class="pub__title">Technology Portfolio Assessment with Uncertainty Consideration for Advanced Air Mobility</span>
               <span class="pub__meta">Lim, D., <strong>Lee, D.</strong>, and Yee, K., <span class="pub__venue">AIAA AVIATION 2022 Forum</span>, AIAA Paper 2022-3660, 2022.</span>
@@ -367,13 +362,13 @@
               <span class="pub__meta">이기호, <strong>이동욱</strong>, <span class="pub__venue">한국항공우주학회 추계학술대회</span>, 2024.</span>
             </div>
           </li>
-          <li class="pub" data-type="conference" data-year="2023" data-tags="mars-micro delivery" lang="ko">
+          <li class="pub" data-type="conference" data-year="2023" data-tags="mars-micro" lang="ko">
             <div>
               <span class="pub__title">화성 탐사 비행체-로버 협업 시스템을 위한 ConOps 및 비행체 형상 후보군 제시</span>
               <span class="pub__meta">박성중, <strong>이동욱</strong>, 권순명, 이관중, <span class="pub__venue">한국항공우주학회 추계학술대회</span>, 2023.</span>
             </div>
           </li>
-          <li class="pub" data-type="conference" data-year="2023" data-tags="uam-evtol mars-micro" lang="ko">
+          <li class="pub" data-type="conference" data-year="2023" data-tags="mars-micro" lang="ko">
             <div>
               <span class="pub__title">화성 탐사 수직이착륙 비행체 개념설계 연구</span>
               <span class="pub__meta"><strong>이동욱</strong>, 권순명, 박성중, 이관중, <span class="pub__venue">한국항공우주학회 추계학술대회</span>, 2023.</span>
@@ -464,7 +459,7 @@
       <section class="pub-group" id="patents">
         <h2>Patents <span class="count">1</span></h2>
         <ol class="pub-list">
-          <li class="pub" data-type="patent" data-year="2020" data-tags="" lang="ko">
+          <li class="pub" data-type="patent" data-year="2020" data-tags="compound" lang="ko">
             <div>
               <span class="pub__title">블레이드 덮개로 이용하는 리프트 팬을 포함하는 비행체</span>
               <span class="pub__meta">이관중, 정수민, <strong>이동욱</strong>, 등록번호 01-2018-0084645, 등록일 2020.01.30.</span>
@@ -507,22 +502,23 @@
       <div class="footer__col">
         <p class="footer__head">Visit</p>
         <ul>
-          <li>236-49 Gomseom-ro, Nam-myeon, Taean-gun,<br>Chungcheongnam-do, Republic of Korea</li>
+          <li>236‑49 Gomseom‑ro, Nam‑myeon, Taean‑gun,<br>Chungcheongnam‑do, Republic of Korea</li>
           <li lang="ko">충청남도 태안군 남면 곰섬로 236-49<br>항공기술교육관 213호</li>
         </ul>
       </div>
     </div>
-    <div class="band" aria-label="Collaborating and funding organizations">
-      <p class="band__label">Working with</p>
+    <section class="band" aria-labelledby="band-label">
+      <p class="band__label" id="band-label">Working with</p>
       <div class="band__viewport">
         <ul class="track">
-          <li>Seoul National University</li><li>KITECH</li><li>KARI</li><li>DLR</li><li>KASA</li><li>NRF</li><li>MOTIE</li><li>DAPA</li><li>Chungnam Institute</li><li>Hanseo University</li>
+          <li>Seoul National University</li><li>KITECH</li><li>KARI</li><li>DLR</li><li>KASA</li><li>NRF</li><li>MOTIE</li><li>DAPA</li><li>Chungnam Institute</li>
         </ul>
         <ul class="track" aria-hidden="true">
-          <li>Seoul National University</li><li>KITECH</li><li>KARI</li><li>DLR</li><li>KASA</li><li>NRF</li><li>MOTIE</li><li>DAPA</li><li>Chungnam Institute</li><li>Hanseo University</li>
+          <li>Seoul National University</li><li>KITECH</li><li>KARI</li><li>DLR</li><li>KASA</li><li>NRF</li><li>MOTIE</li><li>DAPA</li><li>Chungnam Institute</li>
         </ul>
       </div>
-    </div>
+      <button class="band__toggle" type="button" aria-pressed="false" data-band-toggle>Pause</button>
+    </section>
     <div class="footer__bottom">
       <span>© 2026 Advanced Aircraft Design Laboratory, Hanseo University. All rights reserved.</span>
       <span class="footer__univ"><img src="assets/img/logo-hanseo.png" alt="Hanseo University"></span>
@@ -530,6 +526,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20261101f"></script>
+<script src="assets/js/main.js?v=20261101g"></script>
 </body>
 </html>
