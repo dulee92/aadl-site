@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-ei/b2Mz3F5J8nqTvpKS89CkzDCuD7Cc+/F+OsaPUKItzHgLNKnGq3rjtYq/B7RnO" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261101e">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261101f">
   <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -37,25 +37,42 @@
 
 <!-- ===== Hero ===== -->
 <section class="hero" id="home">
-  <img class="hero__art" src="assets/img/hero-fleet.svg?v=20261101e" alt="" aria-hidden="true">
-  <div class="container">
+  <div class="container hero__grid">
     <div class="hero__content">
       <p class="hero__eyebrow">Hanseo University · Dept. of Unmanned Aircraft Systems</p>
       <img class="hero__logo" src="assets/img/logo-aadl-white.png" alt="AADL — Advanced Aircraft Design Laboratory">
       <h1>Designing next-generation aircraft, <em>from concept to mission.</em></h1>
       <p class="hero__lead">Simulation-based design, mission-level operation, and experiment-based analysis for UAM, UAVs, and beyond.</p>
-      <p class="hero__rotate">Designing for <span class="rotate" data-words="urban air mobility|wildfire suppression UAVs|Mars rotorcraft|micro UAVs|electric propulsion systems">urban air mobility</span></p>
       <div class="hero__actions">
         <a class="btn btn--primary" href="research.html">Explore our research</a>
         <a class="btn btn--light" href="join.html">Join AADL</a>
       </div>
     </div>
+    <div class="hero__side">
+      <figure class="hero__demo" aria-hidden="true">
+        <img src="assets/img/hero-fleet.svg?v=20261101f" alt="">
+        <span class="callout" style="--x:3%;--y:2%;--i:0">lift + cruise · 8 lift rotors, pusher propeller</span>
+        <span class="callout" style="--x:27%;--y:47%;--i:1">vectored thrust · tilting proprotors</span>
+        <span class="callout" style="--x:61%;--y:2%;--i:2">compound · stub wing, pusher</span>
+        <span class="callout" style="--x:54%;--y:92%;--i:3">Mars UAV · hexarotor, solar array</span>
+      </figure>
+      <pre class="log" aria-label="Example sizing result from RISPECT+"><span class="log__head">RISPECT+ · sizing log</span>
+<span class="log__k">concept</span>  lift+cruise eVTOL, 2 pax
+<span class="log__k">MTOW   </span>  1,004 kg · payload 182 kg · span 11.0 m
+<span class="log__k">EPS    </span>  motor · inverter · battery equivalent circuits
+<span class="log__k">source </span>  Journal of Aircraft 61(2), 2024<span class="caret"></span></pre>
+    </div>
   </div>
   <a class="hero__scroll" href="#vision" aria-label="Scroll down"><span class="mouse"></span>Scroll down</a>
 </section>
+<div class="sentinel" aria-hidden="true"></div>
+<div class="focus" role="list" aria-label="Research areas">
+  <span class="focus__label">Areas of inquiry</span>
+  <span role="listitem">UAM &amp; eVTOL design</span><span role="listitem">Electric &amp; hybrid propulsion</span><span role="listitem">Wildfire suppression UAVs</span><span role="listitem">Battery &amp; motor testing</span><span role="listitem">Mars &amp; micro UAVs</span><span role="listitem">AI-based design tools</span>
+</div>
 
 <!-- ===== Main (side navigation + sections) ===== -->
-<main class="section">
+<main class="section section--top">
   <div class="container with-sidenav">
     <nav aria-label="Page sections">
       <ul class="sidenav">
@@ -184,37 +201,26 @@
 
       <!-- News -->
       <section class="subsection" id="news">
-        <div class="section__head">
-          <p class="eyebrow">News</p>
-          <h2>Latest from the lab</h2>
+        <div class="section__head section__head--row">
+          <div><p class="eyebrow">News</p><h2>Latest from the lab</h2></div>
+          <a class="more" href="news.html">All news <span aria-hidden="true">→</span></a>
         </div>
-        <div class="grid grid--3">
-          <a class="card" href="news.html#n-2026-09-17">
-            <div class="card__media card__media--contain"><img src="assets/img/research/rispect-ai-ui.png" alt="RISPECT+ Aircraft Design AI interface" loading="lazy"></div>
-            <div class="card__body">
-              <span class="card__meta">17 Sep 2026 · Conference</span>
-              <h3 class="card__title">Agentic AI workflow for aircraft conceptual design presented at ICAS 2026, Sydney</h3>
-              <p class="card__text">"Developing an Agentic AI Workflow for Automated Conceptual Design of Aircraft Using RISPECT+".</p>
-            </div>
-          </a>
-          <a class="card" href="news.html#n-2026-09-01">
-            <div class="card__media card__media--contain"><img src="assets/img/research/uam-lift-cruise-config.png" alt="Lift+cruise UAM configuration" loading="lazy"></div>
-            <div class="card__body">
-              <span class="card__meta">Sep 2026 · Journal</span>
-              <h3 class="card__title">Turboelectric propulsion analysis method published in Energy</h3>
-              <p class="card__text">"Improved turboelectric propulsion system analysis method for electrified aircraft conceptual design", Energy, Vol. 360 (co-corresponding author).</p>
-            </div>
-          </a>
-          <a class="card" href="news.html#n-2026-07-01">
-            <div class="card__media card__media--contain"><img src="assets/img/research/mbse-data-structure.png" alt="MBSE data-structure diagram" loading="lazy"></div>
-            <div class="card__body">
-              <span class="card__meta">Jul 2026 · Project</span>
-              <h3 class="card__title">New MOTIE project on drone reference models starts</h3>
-              <p class="card__text">도심물류 및 민군융합드론 참조모델 기술 개발 (2026.07 – 2028.12), AADL as principal investigator.</p>
-            </div>
-          </a>
+        <div class="news">
+          <article class="news__feature">
+            <a class="news__media" href="news.html#n-2026-09-17"><img src="assets/img/research/rispect-ai-ui.png" alt="RISPECT+ Aircraft Design AI interface" loading="lazy"></a>
+            <p class="news__date">17 Sep 2026 · Conference</p>
+            <h3><a href="news.html#n-2026-09-17">Agentic AI workflow for aircraft conceptual design presented at ICAS 2026, Sydney</a></h3>
+            <p class="news__text">"Developing an Agentic AI Workflow for Automated Conceptual Design of Aircraft Using RISPECT+", with KITECH.</p>
+            <a class="more" href="news.html#n-2026-09-17">Read more <span aria-hidden="true">→</span></a>
+          </article>
+          <ol class="news__list" start="2">
+            <li><span class="news__date">Sep 2026 · Journal</span><a href="news.html#n-2026-09-01">Turboelectric propulsion analysis method published in Energy (co-corresponding author)</a></li>
+            <li><span class="news__date">Jul 2026 · Project</span><a href="news.html#n-2026-07-01">New MOTIE project on drone reference models starts</a></li>
+            <li><span class="news__date">Jul 2026 · Project</span><a href="news.html#n-2026-07-01b">New KITECH project on TTE certification test scenarios starts</a></li>
+            <li><span class="news__date">Jun 2026 · Conference</span><a href="news.html#n-2026-06-12">Byeongjun Park presents at IEEE ITEC 2026, Michigan</a></li>
+            <li><span class="news__date">Jun 2026 · Conference</span><a href="news.html#n-2026-06-12b">Giho Lee presents at the AIAA AVIATION 2026 Forum, San Diego</a></li>
+          </ol>
         </div>
-        <div class="mt-3"><a class="btn btn--ghost" href="news.html">See all news</a></div>
       </section>
 
       <!-- Join -->
@@ -244,9 +250,9 @@
     <div class="footer__top">
       <div class="footer__brand">
         <img src="assets/img/logo-aadl-white.png" alt="AADL">
-        <p>Advanced Aircraft Design Laboratory<br>차세대비행체설계연구실<br>Department of Unmanned Aircraft Systems, Hanseo University</p>
+        <p class="lockup"><span lang="en">Advanced Aircraft Design Laboratory</span><span lang="ko">차세대비행체설계연구실</span><span class="lockup__dept">Department of Unmanned Aircraft Systems · Hanseo University</span></p>
       </div>
-      <div>
+      <div class="footer__col">
         <p class="footer__head">Explore</p>
         <ul>
           <li><a href="research.html">Research</a></li>
@@ -257,12 +263,30 @@
           <li><a href="join.html">Join us</a></li>
         </ul>
       </div>
-      <div>
+      <div class="footer__col">
         <p class="footer__head">Contact</p>
         <ul>
           <li><a href="mailto:dulee@hanseo.ac.kr">dulee@hanseo.ac.kr</a></li>
           <li>+82-41-671-6282</li>
-          <li>Room 213, Aviation Technical Education Center,<br>236-49 Gomseom-ro, Nam-myeon, Taean-gun,<br>Chungcheongnam-do, Republic of Korea</li>
+          <li>Room 213, Aviation Technical Education Center</li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__head">Visit</p>
+        <ul>
+          <li>236-49 Gomseom-ro, Nam-myeon, Taean-gun,<br>Chungcheongnam-do, Republic of Korea</li>
+          <li lang="ko">충청남도 태안군 남면 곰섬로 236-49<br>항공기술교육관 213호</li>
+        </ul>
+      </div>
+    </div>
+    <div class="band" aria-label="Collaborating and funding organizations">
+      <p class="band__label">Working with</p>
+      <div class="band__viewport">
+        <ul class="track">
+          <li>Seoul National University</li><li>KITECH</li><li>KARI</li><li>DLR</li><li>KASA</li><li>NRF</li><li>MOTIE</li><li>DAPA</li><li>Chungnam Institute</li><li>Hanseo University</li>
+        </ul>
+        <ul class="track" aria-hidden="true">
+          <li>Seoul National University</li><li>KITECH</li><li>KARI</li><li>DLR</li><li>KASA</li><li>NRF</li><li>MOTIE</li><li>DAPA</li><li>Chungnam Institute</li><li>Hanseo University</li>
         </ul>
       </div>
     </div>
@@ -295,6 +319,6 @@
   </div>
 </div>
 
-<script src="assets/js/main.js?v=20261101e"></script>
+<script src="assets/js/main.js?v=20261101f"></script>
 </body>
 </html>

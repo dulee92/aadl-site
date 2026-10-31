@@ -8,12 +8,18 @@
   var toggle = document.querySelector('.nav__toggle');
   var links = document.querySelector('.nav__links');
 
-  function updateNav() {
-    if (!nav || nav.classList.contains('nav--always-solid')) return;
-    nav.classList.toggle('nav--solid', window.scrollY > 40);
+  var sentinel = document.querySelector('.sentinel');
+  if (nav && !nav.classList.contains('nav--always-solid')) {
+    var heroEl = document.querySelector('.hero') || sentinel;
+    if (heroEl && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        nav.classList.toggle('nav--solid', !entries[0].isIntersecting);
+      }, { rootMargin: '-' + (nav.offsetHeight || 72) + 'px 0px 0px 0px', threshold: 0 }).observe(heroEl);
+    } else {
+      var updateNav = function () { nav.classList.toggle('nav--solid', window.scrollY > 40); };
+      updateNav(); window.addEventListener('scroll', updateNav, { passive: true });
+    }
   }
-  updateNav();
-  window.addEventListener('scroll', updateNav, { passive: true });
 
   if (toggle && links) {
     toggle.addEventListener('click', function () {
@@ -41,7 +47,7 @@
 
   // Reveal on scroll: tag common blocks automatically (only when the observer exists, so no-JS pages stay visible)
   if ('IntersectionObserver' in window && !reduceMotion) {
-    var autoSel = '.topic, .card, .person, .award, .pillar, .pub-group, .timeline__item, .stat, .paper, .section__head, .figure-grid > .figure, .split > *, .vision__list, .vision > .figure, .contact, .chips, .notice, .table-wrap, .anchor-nav, .pi, .group-head';
+    var autoSel = '.topic, .card, .person, .award, .pillar, .pub-group, .timeline__item, .stat, .paper, .section__head, .figure-grid > .figure, .split > *, .vision__list, .vision > .figure, .contact, .news__feature, .news__list, .pi, .group-head, .pillar-block__label';
     document.querySelectorAll(autoSel).forEach(function (el) {
       if (el.closest('.hero') || el.closest('.nav') || el.closest('.popup')) return;
       if (!el.classList.contains('reveal')) el.classList.add('reveal');
@@ -154,8 +160,9 @@
     top.classList.toggle('is-visible', window.scrollY > 600);
     if (heroContent && desktop && !reduceMotion) {
       var y = Math.min(window.scrollY, 900);
-      heroContent.style.translate = '0 ' + (y * 0.18) + 'px';
-      heroContent.style.opacity = String(Math.max(0, 1 - y / 650));
+      heroContent.style.translate = '0 ' + (y * 0.12) + 'px';
+      heroContent.style.opacity = String(Math.max(0, 1 - y / 800));
+      var side = document.querySelector('.hero__side'); if (side) side.style.translate = '0 ' + (y * 0.06) + 'px';
     }
   }
   onScrollFx(); window.addEventListener('scroll', onScrollFx, { passive: true });
@@ -189,47 +196,52 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
   }
 
-  // Hero: rotating application words and a light parallax on the fleet drawing
-  var rot = document.querySelector('.hero__rotate .rotate');
-  if (rot && !reduceMotion) {
-    var words = (rot.getAttribute('data-words') || '').split('|').filter(Boolean), wi = 0;
-    if (words.length > 1) setInterval(function () {
-      rot.classList.add('is-out');
-      setTimeout(function () { wi = (wi + 1) % words.length; rot.textContent = words[wi]; rot.classList.remove('is-out'); }, 380);
-    }, 2600);
-  }
-  var art = document.querySelector('.hero__art');
-  if (art && !reduceMotion && desktop) {
-    var px = 0, py = 0;
-    function placeArt() { art.style.translate = px + 'px ' + (py + Math.min(window.scrollY, 900) * 0.10) + 'px'; }
-    document.querySelector('.hero').addEventListener('pointermove', function (e) {
-      var r = e.currentTarget.getBoundingClientRect();
-      var dx = (e.clientX - r.left) / r.width - 0.5, dy = (e.clientY - r.top) / r.height - 0.5;
-      px = dx * -30; py = dy * -20; placeArt();
-    });
-    window.addEventListener('scroll', placeArt, { passive: true });
-  }
-
-  // Desktop only: card tilt and cursor spotlight
-  if (desktop && !reduceMotion) {
-    document.querySelectorAll('.pillar, .person, .paper, .card, .award, .stat').forEach(function (el) {
-      el.classList.add('tilt');
-      el.addEventListener('pointerenter', function () { el.classList.add('is-tilting'); });
-      el.addEventListener('pointermove', function (e) {
-        var r = el.getBoundingClientRect();
-        var rx = ((e.clientY - r.top) / r.height - 0.5) * -5, ry = ((e.clientX - r.left) / r.width - 0.5) * 5;
-        el.style.transform = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateY(-4px)';
+  // Publication filters (publications.html)
+  var filters = document.getElementById('filters');
+  if (filters) {
+    var pubs = Array.prototype.slice.call(document.querySelectorAll('.pub'));
+    var groups = Array.prototype.slice.call(document.querySelectorAll('.pub-group'));
+    var chips = Array.prototype.slice.call(filters.querySelectorAll('.chip[data-filter]'));
+    var clearBtn = document.getElementById('filter-clear'), countEl = document.getElementById('filter-count');
+    var active = { type: [], year: [], tag: [] };
+    function apply() {
+      var shown = 0;
+      pubs.forEach(function (li) {
+        var ok = true;
+        if (active.type.length) ok = ok && active.type.indexOf(li.getAttribute('data-type')) > -1;
+        if (active.year.length) ok = ok && active.year.indexOf(li.getAttribute('data-year')) > -1;
+        if (active.tag.length) { var tags = (li.getAttribute('data-tags') || '').split(' '); ok = ok && active.tag.some(function (t) { return tags.indexOf(t) > -1; }); }
+        li.hidden = !ok; if (ok) shown++;
       });
-      el.addEventListener('pointerleave', function () { el.style.transform = ''; setTimeout(function () { el.classList.remove('is-tilting'); }, 150); });
-    });
-    document.querySelectorAll('.card--navy, .panel--navy, .pillar-head, .contact__item, .stat').forEach(function (el) {
-      el.classList.add('spot');
-      el.addEventListener('pointermove', function (e) {
-        var r = el.getBoundingClientRect();
-        el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
-        el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+      groups.forEach(function (g) {
+        var visible = g.querySelectorAll('.pub:not([hidden])').length;
+        var c = g.querySelector('.count'); if (c) c.textContent = visible;
+        g.hidden = visible === 0;
+      });
+      var any = active.type.length + active.year.length + active.tag.length > 0;
+      if (countEl) countEl.textContent = any ? shown + ' of ' + pubs.length + ' publications match' : pubs.length + ' publications';
+      if (clearBtn) clearBtn.hidden = !any;
+      chips.forEach(function (c) { var kv = c.getAttribute('data-filter').split(':'); c.setAttribute('aria-pressed', active[kv[0]].indexOf(kv[1]) > -1 ? 'true' : 'false'); });
+      var h = [].concat(active.type.map(function (v) { return 'type:' + v; }), active.year.map(function (v) { return 'year:' + v; }), active.tag.map(function (v) { return 'tag:' + v; })).join(',');
+      if (history.replaceState) history.replaceState(null, '', h ? '#f=' + h : location.pathname + location.search);
+    }
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        var kv = c.getAttribute('data-filter').split(':'), arr = active[kv[0]], i = arr.indexOf(kv[1]);
+        if (i > -1) arr.splice(i, 1); else arr.push(kv[1]);
+        apply();
       });
     });
+    if (clearBtn) clearBtn.addEventListener('click', function () { active = { type: [], year: [], tag: [] }; apply(); });
+    function fromHash() {
+      active = { type: [], year: [], tag: [] };
+      if (location.hash.indexOf('#f=') === 0) {
+        location.hash.slice(3).split(',').forEach(function (kv) { var p = kv.split(':'); if (active[p[0]] && p[1] && active[p[0]].indexOf(p[1]) < 0) active[p[0]].push(p[1]); });
+      }
+      apply();
+    }
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
   }
 
   // Lazy-play muted videos only when visible
