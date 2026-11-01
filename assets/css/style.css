@@ -506,12 +506,12 @@ a.card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: v
 /* Hero: statement + annotated fleet figure + sizing log */
 .hero { min-height: min(100svh, 980px); padding: calc(var(--nav-h) + 3rem) 0 4.5rem; }
 .hero::before { opacity: .28; }
-.hero__grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.hero__grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: clamp(2rem, 4vw, 3.5rem); align-items: center; }
 .hero__grid > * { min-width: 0; }
 .hero__side { display: block; }
 .hero__content { max-width: none; }
 .hero h1 { text-wrap: balance; max-width: none; }
-.hero__demo { position: relative; margin: 0; padding: .9rem .6rem .4rem; border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); background: rgba(255,255,255,.04); }
+.hero__demo { position: relative; margin: 0; padding: .55rem .5rem; border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); background: rgba(255,255,255,.04); }
 .sentinel { height: 1px; }
 .focus { background: var(--blue); color: #fff; font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
 .focus__inner { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; padding: .9rem 0; }
@@ -649,10 +649,9 @@ html:not(.js) .nav__links a { color: var(--ink-2); }
 .figure--svg svg { border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; }
 @media (max-width: 700px) { .figure--svg { overflow-x: auto; -webkit-overflow-scrolling: touch; } .figure--svg svg { min-width: 680px; } }
 @media (max-width: 700px) { .hero-fleet--tall .lbl-num { display: none; } .hero-fleet--tall .lbl-name { font-size: 19px; } }
+@media (min-width: 981px) and (max-width: 1150px) { .hero-fleet--tall .lbl-num { display: none; } .hero-fleet--tall .lbl-name { font-size: 16px; } }
 @media (prefers-reduced-motion: reduce) { .spin { animation: none !important; } }
 
-.hero__cap { margin: .5rem .2rem 0; font-size: .8rem; color: rgba(255,255,255,.6); }
-.hero__demo { padding: 1rem .8rem .6rem; }
 
 .hero__demo svg { max-width: 100%; }
 
