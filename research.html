@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-ei/b2Mz3F5J8nqTvpKS89CkzDCuD7Cc+/F+OsaPUKItzHgLNKnGq3rjtYq/B7RnO" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261101k">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261101l">
   <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -125,21 +125,21 @@
       <article class="topic" id="rispect">
         <p class="topic__tag">1-A · In collaboration with SNU</p>
         <h3>RISPECT+ conceptual design tool</h3>
-        <div class="split">
-          <figure class="figure">
-            <img src="assets/img/research/rispect-flowchart.png" alt="RISPECT+ flow chart from input data to sizing results" loading="lazy">
-            <figcaption>RISPECT+ flow chart.</figcaption>
-          </figure>
-          <div>
-            <p>RISPECT+ (Rotorcraft Initial Sizing and Performance Estimation Code and Toolkit+) is the in-house conceptual design code of AADL. Its sizing loop starts from the input data (design variables and parameters, constraints, and the mission profile) and an initial assumption of the maximum takeoff gross weight. It then constructs or modifies the geometry, sizes the propulsion system through flight analysis and electric propulsion system (EPS) modeling, runs the mission analysis, estimates the weights, and computes the available payload until the termination check is satisfied.</p>
-            <p>The sizing results are the empty weight, EPS efficiency, max. SPL, and performance; an outer optimizer changes the design variables until the constraints and fitness converge.</p>
-            <ul>
-              <li><strong>Aircraft types:</strong> wingless (multirotor), lift+cruise, vectored thrust, compound, ducted fan, conventional, Mars UAV (low Reynolds number), and micro UAV (low Reynolds number).</li>
-              <li><strong>Propulsion architectures:</strong> parallel hybrid, series hybrid, series/parallel hybrid, turboelectric, fuel-cell electric, and full battery electric.</li>
-              <li><strong>Rotor types:</strong> single, coaxial, tip-driven, ducted fan, tiltrotor, distributed lift, and distributed cruise, analyzed with momentum theory, momentum theory with aero-propulsive effect, blade element theory with linear inflow, blade element momentum theory, or 1-D Euler beam theory.</li>
-              <li><strong>Other components:</strong> wing by vortex lattice method or airfoil table; fuselage and anti-torque by empirical formula or external data; propulsion by empirical formula, energy-in-a-box, battery linear model, equivalent circuit analysis, or fuel-cell analysis model.</li>
-            </ul>
-          </div>
+        <div class="topic__text">
+          <p>RISPECT+ (Rotorcraft Initial Sizing and Performance Estimation Code and Toolkit+) is the in-house conceptual design code of AADL. Its sizing loop starts from the input data (design variables and parameters, constraints, and the mission profile) and an initial assumption of the maximum takeoff gross weight. It then constructs or modifies the geometry, sizes the propulsion system through flight analysis and electric propulsion system (EPS) modeling, runs the mission analysis, estimates the weights, and computes the available payload until the termination check is satisfied.</p>
+          <p>The sizing results are the empty weight, EPS efficiency, max. SPL, and performance; an outer optimizer changes the design variables until the constraints and fitness converge.</p>
+          <ul>
+<li><strong>Aircraft types:</strong> wingless (multirotor), lift+cruise, vectored thrust, compound, ducted fan, conventional, Mars UAV (low Reynolds number), and micro UAV (low Reynolds number).</li>
+<li><strong>Propulsion architectures:</strong> parallel hybrid, series hybrid, series/parallel hybrid, turboelectric, fuel-cell electric, and full battery electric.</li>
+<li><strong>Rotor types:</strong> single, coaxial, tip-driven, ducted fan, tiltrotor, distributed lift, and distributed cruise, analyzed with momentum theory, momentum theory with aero-propulsive effect, blade element theory with linear inflow, blade element momentum theory, or 1-D Euler beam theory.</li>
+<li><strong>Other components:</strong> wing by vortex lattice method or airfoil table; fuselage and anti-torque by empirical formula or external data; propulsion by empirical formula, energy-in-a-box, battery linear model, equivalent circuit analysis, or fuel-cell analysis model.</li>
+</ul>
+        </div>
+        <div style="--row-h:150px;--row-cq:18.63cqw" class="gallery gallery--1">
+          <figure class="figure" style="--ar:1.381">
+<img alt="RISPECT+ flow chart from input data to sizing results" loading="lazy" src="assets/img/research/rispect-flowchart.png"/>
+<figcaption>RISPECT+ flow chart.</figcaption>
+</figure>
         </div>
         <figure class="figure figure--svg mt-3">
           <!-- svg:config-figure -->
@@ -195,41 +195,37 @@
       <article class="topic" id="uam-eps">
         <p class="topic__tag">1-B · In collaboration with SNU</p>
         <h3>UAM aircraft design with physics-based electric propulsion modeling</h3>
-        <div class="split split--reverse">
-          <div class="figure-grid">
-            <figure class="figure">
-              <img src="assets/img/research/uam-lift-cruise-config.png" alt="Lift+cruise UAM aircraft configuration" loading="lazy">
-              <figcaption>Lift+cruise UAM configuration.</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="assets/img/research/uam-lift-cruise-layout.png" alt="Sized layout of the lift+cruise UAM aircraft" loading="lazy">
-              <figcaption>Lift+cruise UAM sized layout.</figcaption>
-            </figure>
-          </div>
-          <div>
-            <p>A lift+cruise UAM aircraft is designed with aeroacoustic effects considered in hovering conditions. Electric-circuit analysis models enhance the conceptual design: efficiency maps are built for the sized motors (motor 1 for the propeller, motor 2 for the 12 distributed lift propellers), and the mission analysis tracks the efficiencies and power losses of the EPS components.</p>
-            <ul>
-              <li>Design optimization results are compared by their ground noise contours: OPT1 at 1,003 kg and 76.3 dBA versus OPT2 at 1,096 kg and 61.9 dBA.</li>
-            </ul>
-          </div>
+        <div class="topic__text">
+          <p>A lift+cruise UAM aircraft is designed with aeroacoustic effects considered in hovering conditions. Electric-circuit analysis models enhance the conceptual design: efficiency maps are built for the sized motors (motor 1 for the propeller, motor 2 for the 12 distributed lift propellers), and the mission analysis tracks the efficiencies and power losses of the EPS components.</p>
+          <ul>
+<li>Design optimization results are compared by their ground noise contours: OPT1 at 1,003 kg and 76.3 dBA versus OPT2 at 1,096 kg and 61.9 dBA.</li>
+</ul>
         </div>
-        <div class="figure-grid mt-3">
-          <figure class="figure">
-            <img src="assets/img/research/uam-motor2-efficiency-map.png" alt="Efficiency map of motor 2 (lift propellers) with the landing and takeoff/hover operating points" loading="lazy">
-            <figcaption>Motor 2 (12 lift propellers) efficiency map with the takeoff/hover and landing points.</figcaption>
-          </figure>
-          <figure class="figure">
-            <img src="assets/img/research/uam-motor1-efficiency-map.png" alt="Efficiency map of motor 1 (cruise propeller) with the climb, cruise/loiter and descent operating points" loading="lazy">
-            <figcaption>Motor 1 (propeller) efficiency map with the climb, cruise/loiter and descent points.</figcaption>
-          </figure>
-          <figure class="figure">
-            <img src="assets/img/research/uam-ground-noise-1.png" alt="Ground noise footprint of design OPT1" loading="lazy">
-            <figcaption>Ground noise footprint, OPT1 (1,003 kg, 76.3 dBA).</figcaption>
-          </figure>
-          <figure class="figure">
-            <img src="assets/img/research/uam-ground-noise-2.png" alt="Ground noise footprint of design OPT2" loading="lazy">
-            <figcaption>Ground noise footprint, OPT2 (1,096 kg, 61.9 dBA).</figcaption>
-          </figure>
+        <div style="--row-h:200px;--row-cq:24.84cqw" class="gallery gallery--6">
+          <figure class="figure" style="--ar:2.753">
+<img alt="Sized layout of the lift+cruise UAM aircraft" loading="lazy" src="assets/img/research/uam-lift-cruise-layout.png"/>
+<figcaption>Lift+cruise UAM sized layout.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.223">
+<img alt="Lift+cruise UAM aircraft configuration" loading="lazy" src="assets/img/research/uam-lift-cruise-config.png"/>
+<figcaption>Lift+cruise UAM configuration.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.218">
+<img alt="Efficiency map of motor 2 (lift propellers) with the landing and takeoff/hover operating points" loading="lazy" src="assets/img/research/uam-motor2-efficiency-map.png"/>
+<figcaption>Motor 2 (12 lift propellers) efficiency map with the takeoff/hover and landing points.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.226">
+<img alt="Efficiency map of motor 1 (cruise propeller) with the climb, cruise/loiter and descent operating points" loading="lazy" src="assets/img/research/uam-motor1-efficiency-map.png"/>
+<figcaption>Motor 1 (propeller) efficiency map with the climb, cruise/loiter and descent points.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.544">
+<img alt="Ground noise footprint of design OPT1" loading="lazy" src="assets/img/research/uam-ground-noise-1.png"/>
+<figcaption>Ground noise footprint, OPT1 (1,003 kg, 76.3 dBA).</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.557">
+<img alt="Ground noise footprint of design OPT2" loading="lazy" src="assets/img/research/uam-ground-noise-2.png"/>
+<figcaption>Ground noise footprint, OPT2 (1,096 kg, 61.9 dBA).</figcaption>
+</figure>
         </div>
         <div class="papers">
           <h4 class="papers__head">From the papers</h4>
@@ -261,40 +257,36 @@
       <article class="topic" id="mars-uav">
         <p class="topic__tag">1-C · In collaboration with SNU · KASA project</p>
         <h3>Mars UAV conceptual design</h3>
-        <div class="split">
-          <div class="figure-grid">
-            <figure class="figure">
-              <img src="assets/img/research/mars-uav-render.png" alt="Render of the Mars UAV hexarotor" loading="lazy">
-              <figcaption>Mars UAV hexarotor render.</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="assets/img/research/mars-uav-architecture.jpg" alt="System and electric power architecture of the Mars rotorcraft" loading="lazy">
-              <figcaption>Mars rotorcraft system and electric power architecture.</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="assets/img/research/mars-uav-deployment.jpg" alt="Lander deployment sequence of the Mars UAV" loading="lazy">
-              <figcaption>Mars UAV lander deployment sequence.</figcaption>
-            </figure>
-          </div>
-          <div>
-            <p>Martian atmospheric conditions are incorporated into the UAV conceptual design, and the results are validated against NASA conceptual design results. The concept covers the lander deployment sequence (lander deployment, extension of the rotor support arms, and unfolding of the rotor blades) and the electric power architecture of solar panel, battery, PMS, ESC, motor, avionics, and heater.</p>
-            <p>For thermal management, a heat-transfer simulation with a thermal resistance network gives the battery and heater temperature and SOC histories over Martian day–night cycles.</p>
-            <p class="topic__collab">Project: <strong>Core technologies for high-performance rotors and electric drive systems for Mars exploration rotorcraft</strong> (화성 탐사 회전익기용 고성능 로터 및 전기구동 시스템 핵심기술 개발), KASA, 2023.06 – 2026.12. See <a href="projects.html">Projects</a>.</p>
-          </div>
+        <div class="topic__text">
+          <p>Martian atmospheric conditions are incorporated into the UAV conceptual design, and the results are validated against NASA conceptual design results. The concept covers the lander deployment sequence (lander deployment, extension of the rotor support arms, and unfolding of the rotor blades) and the electric power architecture of solar panel, battery, PMS, ESC, motor, avionics, and heater.</p>
+          <p>For thermal management, a heat-transfer simulation with a thermal resistance network gives the battery and heater temperature and SOC histories over Martian day–night cycles.</p>
+          <p class="topic__collab">Project: <strong>Core technologies for high-performance rotors and electric drive systems for Mars exploration rotorcraft</strong> (화성 탐사 회전익기용 고성능 로터 및 전기구동 시스템 핵심기술 개발), KASA, 2023.06 – 2026.12. See <a href="projects.html">Projects</a>.</p>
         </div>
-        <div class="figure-grid mt-3">
-          <figure class="figure">
-            <img src="assets/img/research/mars-uav-tms-render.png" alt="Render of the Mars UAV with its battery box" loading="lazy">
-            <figcaption>Mars UAV with battery box.</figcaption>
-          </figure>
-          <figure class="figure">
-            <img src="assets/img/research/mars-tms-thermal-model.png" alt="Thermal resistance network model of the Mars UAV battery" loading="lazy">
-            <figcaption>Thermal resistance network model.</figcaption>
-          </figure>
-          <figure class="figure">
-            <img src="assets/img/research/mars-tms-temperatures.png" alt="Battery and heater temperature history over Martian day–night cycles" loading="lazy">
-            <figcaption>Battery and heater temperature history.</figcaption>
-          </figure>
+        <div style="--row-h:175px;--row-cq:21.74cqw" class="gallery gallery--6">
+          <figure class="figure" style="--ar:3.623">
+<img alt="System and electric power architecture of the Mars rotorcraft" loading="lazy" src="assets/img/research/mars-uav-architecture.jpg"/>
+<figcaption>Mars rotorcraft system and electric power architecture.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:4.424">
+<img alt="Lander deployment sequence of the Mars UAV" loading="lazy" src="assets/img/research/mars-uav-deployment.jpg"/>
+<figcaption>Mars UAV lander deployment sequence.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.564">
+<img alt="Render of the Mars UAV hexarotor" loading="lazy" src="assets/img/research/mars-uav-render.png"/>
+<figcaption>Mars UAV hexarotor render.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.312">
+<img alt="Render of the Mars UAV with its battery box" loading="lazy" src="assets/img/research/mars-uav-tms-render.png"/>
+<figcaption>Mars UAV with battery box.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.676">
+<img alt="Thermal resistance network model of the Mars UAV battery" loading="lazy" src="assets/img/research/mars-tms-thermal-model.png"/>
+<figcaption>Thermal resistance network model.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.667">
+<img alt="Battery and heater temperature history over Martian day–night cycles" loading="lazy" src="assets/img/research/mars-tms-temperatures.png"/>
+<figcaption>Battery and heater temperature history.</figcaption>
+</figure>
         </div>
         <p class="outputs">Related outputs: KSAS conferences (2023, 2024).</p>
       </article>
@@ -303,26 +295,24 @@
       <article class="topic" id="micro-uav">
         <p class="topic__tag">1-D · DAPA project</p>
         <h3>Micro UAV conceptual design at low Reynolds number</h3>
-        <div class="split split--reverse">
-          <div class="figure-grid">
-            <figure class="figure">
-              <img src="assets/img/research/micro-uav-cfd.png" alt="CFD streamlines around the micro UAV fuselage" loading="lazy">
-              <figcaption>Micro UAV fuselage CFD streamlines.</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="assets/img/research/micro-uav-airfoil.png" alt="Airfoil lift-to-drag optimization result" loading="lazy">
-              <figcaption>Airfoil L/D optimization.</figcaption>
-            </figure>
-          </div>
-          <div>
-            <p>Aerodynamic results at low Reynolds number conditions are brought into the conceptual design of a micro UAV.</p>
-            <ul>
-              <li>CFD of the fuselage, and airfoil and blade planform optimization.</li>
-              <li>EPS analysis integration.</li>
-              <li>Battery discharge modeling.</li>
-            </ul>
-            <p class="topic__collab">Project: <strong>Low-Reynolds-number aerodynamic analysis and full-vehicle analysis technology for micro UAVs</strong> (초소형 무인기의 저레이놀즈수 공력분석/해석 및 전기체 해석기술 개발), DAPA, 2024.08 – 2025.12. See <a href="projects.html">Projects</a>.</p>
-          </div>
+        <div class="topic__text">
+          <p>Aerodynamic results at low Reynolds number conditions are brought into the conceptual design of a micro UAV.</p>
+          <ul>
+<li>CFD of the fuselage, and airfoil and blade planform optimization.</li>
+<li>EPS analysis integration.</li>
+<li>Battery discharge modeling.</li>
+</ul>
+          <p class="topic__collab">Project: <strong>Low-Reynolds-number aerodynamic analysis and full-vehicle analysis technology for micro UAVs</strong> (초소형 무인기의 저레이놀즈수 공력분석/해석 및 전기체 해석기술 개발), DAPA, 2024.08 – 2025.12. See <a href="projects.html">Projects</a>.</p>
+        </div>
+        <div style="--row-h:150px;--row-cq:18.63cqw" class="gallery gallery--2">
+          <figure class="figure" style="--ar:1.780">
+<img alt="CFD streamlines around the micro UAV fuselage" loading="lazy" src="assets/img/research/micro-uav-cfd.png"/>
+<figcaption>Micro UAV fuselage CFD streamlines.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.000">
+<img alt="Airfoil lift-to-drag optimization result" loading="lazy" src="assets/img/research/micro-uav-airfoil.png"/>
+<figcaption>Airfoil L/D optimization.</figcaption>
+</figure>
         </div>
       </article>
 
@@ -330,26 +320,24 @@
       <article class="topic" id="llm-design">
         <p class="topic__tag">1-F · In collaboration with KITECH</p>
         <h3>Large-language-model-based aircraft conceptual design</h3>
-        <div class="split split--reverse">
-          <div class="figure-grid">
-            <figure class="figure">
-              <img src="assets/img/research/rispect-ai-ui.png" alt="Screenshot of the RISPECT+ Aircraft Design AI chat interface at the hand-over from Agent 1 to Agent 2" loading="lazy">
-              <figcaption>RISPECT+ Aircraft Design AI interface: Agent 1 hands the design parameters over to Agent 2.</figcaption>
-            </figure>
-            <figure class="figure">
-              <video data-autoplay muted loop playsinline controls preload="none" poster="assets/video/design-ai-demo-poster.jpg" aria-label="Screen recording of the RISPECT+ Aircraft Design AI">
-                <source src="assets/video/design-ai-demo.mp4" type="video/mp4">
+        <div class="topic__text">
+          <p>Three agents share the conceptual design task. Agent 1 sets the design parameters through retrieval-augmented generation (RAG) from prior design results; Agent 2 executes the conceptual design tool, RISPECT+; Agent 3 optimizes the design through an evolutionary algorithm.</p>
+          <ul>
+<li>Example: the gross weight of a series-parallel hybrid concept was reduced by 2.59 % (1,004 kg → 978 kg).</li>
+</ul>
+        </div>
+        <div style="--row-h:150px;--row-cq:18.63cqw" class="gallery gallery--2">
+          <figure class="figure" style="--ar:1.778">
+<img alt="Screenshot of the RISPECT+ Aircraft Design AI chat interface at the hand-over from Agent 1 to Agent 2" loading="lazy" src="assets/img/research/rispect-ai-ui.png"/>
+<figcaption>RISPECT+ Aircraft Design AI interface: Agent 1 hands the design parameters over to Agent 2.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.778">
+<video aria-label="Screen recording of the RISPECT+ Aircraft Design AI" controls="" data-autoplay="" loop="" muted="" playsinline="" poster="assets/video/design-ai-demo-poster.jpg" preload="none">
+<source src="assets/video/design-ai-demo.mp4" type="video/mp4"/>
                 Your browser does not support the video.
               </video>
-              <figcaption>Screen recording of a RISPECT+ Aircraft Design AI session.</figcaption>
-            </figure>
-          </div>
-          <div>
-            <p>Three agents share the conceptual design task. Agent 1 sets the design parameters through retrieval-augmented generation (RAG) from prior design results; Agent 2 executes the conceptual design tool, RISPECT+; Agent 3 optimizes the design through an evolutionary algorithm.</p>
-            <ul>
-              <li>Example: the gross weight of a series-parallel hybrid concept was reduced by 2.59 % (1,004 kg → 978 kg).</li>
-            </ul>
-          </div>
+<figcaption>Screen recording of a RISPECT+ Aircraft Design AI session.</figcaption>
+</figure>
         </div>
         <p class="outputs">Related outputs: ICAS Congress (2026), KSAS conferences (2025, 2026).</p>
       </article>
@@ -358,25 +346,23 @@
       <article class="topic" id="digital-engineering">
         <p class="topic__tag">1-G · In collaboration with KITECH · MOTIE project</p>
         <h3>Digital engineering for aircraft system design</h3>
-        <div class="split">
-          <div class="figure-grid">
-            <figure class="figure">
-              <img src="assets/img/research/mbse-data-structure.png" alt="MBSE data-structure diagram for conceptual design data" loading="lazy">
-              <figcaption>MBSE data-structure diagram.</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="assets/img/research/counterfactual-explanation.png" alt="Counterfactual explanation concept for enhancing infeasible designs" loading="lazy">
-              <figcaption>Counterfactual explanation concept.</figcaption>
-            </figure>
-          </div>
-          <div>
-            <ul>
-              <li>Structuring conceptual design data to support requirements verification and traceability in SysML-based MBSE models.</li>
-              <li>Determining design feasibility with a pre-trained graph neural network.</li>
-              <li>Enhancing infeasible designs by post-evaluation with counterfactual explanation analysis.</li>
-            </ul>
-            <p class="topic__collab">Project: <strong>Reference-model technology for urban-logistics and civil–military convergence drones</strong> (도심물류 및 민군융합드론 참조모델 기술 개발), MOTIE, 2026.07 – 2028.12. See <a href="projects.html">Projects</a>.</p>
-          </div>
+        <div class="topic__text">
+          <ul>
+<li>Structuring conceptual design data to support requirements verification and traceability in SysML-based MBSE models.</li>
+<li>Determining design feasibility with a pre-trained graph neural network.</li>
+<li>Enhancing infeasible designs by post-evaluation with counterfactual explanation analysis.</li>
+</ul>
+          <p class="topic__collab">Project: <strong>Reference-model technology for urban-logistics and civil–military convergence drones</strong> (도심물류 및 민군융합드론 참조모델 기술 개발), MOTIE, 2026.07 – 2028.12. See <a href="projects.html">Projects</a>.</p>
+        </div>
+        <div style="--row-h:150px;--row-cq:18.63cqw" class="gallery gallery--2">
+          <figure class="figure" style="--ar:1.668">
+<img alt="MBSE data-structure diagram for conceptual design data" loading="lazy" src="assets/img/research/mbse-data-structure.png"/>
+<figcaption>MBSE data-structure diagram.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:0.989">
+<img alt="Counterfactual explanation concept for enhancing infeasible designs" loading="lazy" src="assets/img/research/counterfactual-explanation.png"/>
+<figcaption>Counterfactual explanation concept.</figcaption>
+</figure>
         </div>
       </article>
     </div></div>
@@ -392,53 +378,49 @@
       <article class="topic" id="wildfire-sos">
         <p class="topic__tag">2-A · In collaboration with DLR · NRF project</p>
         <h3>System-of-systems-based operation strategies for wildfire suppression</h3>
-        <div class="split split--reverse">
-          <div class="figure-grid">
-            <figure class="figure">
-              <img src="assets/img/research/wildfire-suppression-aircraft.jpg" alt="Render of the wildfire suppression aircraft" loading="lazy">
-              <figcaption>Wildfire suppression aircraft.</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="assets/img/research/surveillance-aircraft.jpg" alt="Render of the long-endurance surveillance aircraft" loading="lazy">
-              <figcaption>Long-endurance surveillance aircraft.</figcaption>
-            </figure>
-          </div>
-          <div>
-            <p>A framework for dynamic mission operation in wildfire scenarios combines environment-adaptive mission optimization with multi-agent operation strategies. A wildfire suppression aircraft and a long-endurance surveillance aircraft are sized with RISPECT+, and terrain–weather data for three scenarios (Salamis, Pyrenees, Palisades) feed a fire spread simulation with the fastest spread route. System-of-systems (SoS) optimization based on measures of effectiveness (MoE) then decides the fleet size and tactics.</p>
-            <ul>
-              <li>DLR COLOSSUS X-Challenge 2025 — final ranking 2nd (1st Purdue University, 2nd Hanseo University, 3rd Georgia Institute of Technology).</li>
-            </ul>
-            <p class="topic__collab">Project: <strong>Damage prediction and strategy model for large wildfire disasters based on multiple data sources</strong> (대형 산불 재난에 대응하는 다중 데이터 기반 피해 예측 및 전략 수립 모델 개발), NRF, 2025.09 – 2026.08. See <a href="projects.html">Projects</a>.</p>
-          </div>
+        <div class="topic__text">
+          <p>A framework for dynamic mission operation in wildfire scenarios combines environment-adaptive mission optimization with multi-agent operation strategies. A wildfire suppression aircraft and a long-endurance surveillance aircraft are sized with RISPECT+, and terrain–weather data for three scenarios (Salamis, Pyrenees, Palisades) feed a fire spread simulation with the fastest spread route. System-of-systems (SoS) optimization based on measures of effectiveness (MoE) then decides the fleet size and tactics.</p>
+          <ul>
+<li>DLR COLOSSUS X-Challenge 2025 — final ranking 2nd (1st Purdue University, 2nd Hanseo University, 3rd Georgia Institute of Technology).</li>
+</ul>
+          <p class="topic__collab">Project: <strong>Damage prediction and strategy model for large wildfire disasters based on multiple data sources</strong> (대형 산불 재난에 대응하는 다중 데이터 기반 피해 예측 및 전략 수립 모델 개발), NRF, 2025.09 – 2026.08. See <a href="projects.html">Projects</a>.</p>
         </div>
-        <div class="figure-grid mt-3">
-          <figure class="figure">
-            <img src="assets/img/research/wildfire-aircraft-systems.png" alt="Subsystem layout of the wildfire aircraft" loading="lazy">
-            <figcaption>Wildfire aircraft subsystem layout.</figcaption>
-          </figure>
-          <figure class="figure">
-            <img src="assets/img/research/wildfire-sos-framework.png" alt="System-of-systems optimization framework diagram" loading="lazy">
-            <figcaption>SoS optimization framework.</figcaption>
-          </figure>
-          <figure class="figure">
-            <img src="assets/img/research/wildfire-moe-maps.jpg" alt="Measure-of-effectiveness maps for the Palisades and Salamis scenarios" loading="lazy">
-            <figcaption>Measure-of-effectiveness maps for Palisades and Salamis.</figcaption>
-          </figure>
-          <figure class="figure">
-            <img src="assets/img/research/wildfire-terrain-pyrenees.jpg" alt="Terrain and fuel map of the Pyrenees scenario with aircraft" loading="lazy">
-            <figcaption>Terrain and fuel map with aircraft, Pyrenees.</figcaption>
-          </figure>
-          <figure class="figure">
-            <img src="assets/img/research/wildfire-spread.png" alt="Fire spread map with the fastest spread route" loading="lazy">
-            <figcaption>Fire spread and fastest spread route.</figcaption>
-          </figure>
-          <figure class="figure">
-            <video data-autoplay muted loop playsinline controls preload="none" poster="assets/video/wildfire-spread-poster.jpg" aria-label="Fire spread simulation animation">
-              <source src="assets/video/wildfire-spread.mp4" type="video/mp4">
+        <div style="--row-h:200px;--row-cq:24.84cqw" class="gallery gallery--6">
+          <figure class="figure" style="--ar:2.051">
+<img alt="System-of-systems optimization framework diagram" loading="lazy" src="assets/img/research/wildfire-sos-framework.png"/>
+<figcaption>SoS optimization framework.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.988">
+<img alt="Render of the wildfire suppression aircraft" loading="lazy" src="assets/img/research/wildfire-suppression-aircraft.jpg"/>
+<figcaption>Wildfire suppression aircraft.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.804">
+<img alt="Render of the long-endurance surveillance aircraft" loading="lazy" src="assets/img/research/surveillance-aircraft.jpg"/>
+<figcaption>Long-endurance surveillance aircraft.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.786">
+<img alt="Measure-of-effectiveness maps for the Palisades and Salamis scenarios" loading="lazy" src="assets/img/research/wildfire-moe-maps.jpg"/>
+<figcaption>Measure-of-effectiveness maps for Palisades and Salamis.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.442">
+<img alt="Subsystem layout of the wildfire aircraft" loading="lazy" src="assets/img/research/wildfire-aircraft-systems.png"/>
+<figcaption>Wildfire aircraft subsystem layout.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.017">
+<img alt="Terrain and fuel map of the Pyrenees scenario with aircraft" loading="lazy" src="assets/img/research/wildfire-terrain-pyrenees.jpg"/>
+<figcaption>Terrain and fuel map with aircraft, Pyrenees.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.000">
+<img alt="Fire spread map with the fastest spread route" loading="lazy" src="assets/img/research/wildfire-spread.png"/>
+<figcaption>Fire spread and fastest spread route.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.000">
+<video aria-label="Fire spread simulation animation" controls="" data-autoplay="" loop="" muted="" playsinline="" poster="assets/video/wildfire-spread-poster.jpg" preload="none">
+<source src="assets/video/wildfire-spread.mp4" type="video/mp4"/>
               Your browser does not support the video.
             </video>
-            <figcaption>Fire spread simulation with fastest spread route.</figcaption>
-          </figure>
+<figcaption>Fire spread simulation with fastest spread route.</figcaption>
+</figure>
         </div>
         <p class="outputs">Related outputs: EASN International Conference (2025), AIAA AVIATION Forum (2026), 한국항공우주학회지 (2026), KSAS conferences (2024, 2025), 한국방재학회 (2025).</p>
       </article>
@@ -447,11 +429,13 @@
       <article class="topic" id="field-data">
         <p class="topic__tag">2-B · In collaboration with KITECH</p>
         <h3>Enhanced system operation with field data</h3>
-        <ul>
-          <li>Wind-field-based fire spread and aircraft attitude-control response modeling.</li>
-          <li>Mission-adaptive deployment and trajectory optimization.</li>
-          <li>Disturbance measurement based on aircraft attitude control.</li>
-        </ul>
+        <div class="topic__text">
+          <ul>
+<li>Wind-field-based fire spread and aircraft attitude-control response modeling.</li>
+<li>Mission-adaptive deployment and trajectory optimization.</li>
+<li>Disturbance measurement based on aircraft attitude control.</li>
+</ul>
+        </div>
       </article>
     </div></div>
     </div>
@@ -466,46 +450,42 @@
       <article class="topic" id="mcsa">
         <p class="topic__tag">3-A · In collaboration with KITECH, DLR · KITECH projects</p>
         <h3>Propeller damage detection with motor current signature analysis (MCSA)</h3>
-        <div class="split">
-          <div class="figure-grid">
-            <figure class="figure">
-              <img src="assets/img/research/propeller-test-setup.png" alt="Propeller damage test bench with labeled components" loading="lazy">
-              <figcaption>Propeller damage test bench.</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="assets/img/research/propeller-thrust-test.jpg" alt="Photo of the propeller thrust test" loading="lazy">
-              <figcaption>Propeller thrust test.</figcaption>
-            </figure>
-          </div>
-          <div>
-            <p>Propeller rotation tests measure voltage, current, torque, thrust, and RPM. FFT-based MCSA of the DC-link current reveals the correlation between RPM, thrust, torque, and current by damage location, type, and size, and AI-based fault detection is trained on the current data.</p>
-            <p class="topic__collab">Projects: <strong>Test scenarios for TTE certification based on a commercial propeller balancer</strong> (상용 프로펠러 밸런서 기반 TTE 인증 시험 시나리오 구축), KITECH, 2026.07 – 2026.11; <strong>Electrical-signal data acquisition and processing for multimodal data integration</strong> (멀티모달 데이터 통합을 위한 전기 신호 데이터 수집 및 처리 연구), KITECH, 2025.03 – 2025.06. See <a href="projects.html">Projects</a>.</p>
-          </div>
+        <div class="topic__text">
+          <p>Propeller rotation tests measure voltage, current, torque, thrust, and RPM. FFT-based MCSA of the DC-link current reveals the correlation between RPM, thrust, torque, and current by damage location, type, and size, and AI-based fault detection is trained on the current data.</p>
+          <p class="topic__collab">Projects: <strong>Test scenarios for TTE certification based on a commercial propeller balancer</strong> (상용 프로펠러 밸런서 기반 TTE 인증 시험 시나리오 구축), KITECH, 2026.07 – 2026.11; <strong>Electrical-signal data acquisition and processing for multimodal data integration</strong> (멀티모달 데이터 통합을 위한 전기 신호 데이터 수집 및 처리 연구), KITECH, 2025.03 – 2025.06. See <a href="projects.html">Projects</a>.</p>
         </div>
-        <div class="figure-grid mt-3">
-          <figure class="figure">
-            <img src="assets/img/research/propeller-damage-definition.png" alt="Definition of propeller tip damage cases" loading="lazy">
-            <figcaption>Propeller tip damage definition.</figcaption>
-          </figure>
-          <figure class="figure">
-            <img src="assets/img/research/mcsa-harmonics.jpg" alt="k-th order harmonic spectrum of the DC-link current and torque for normal and damaged propellers" loading="lazy">
-            <figcaption>k-th order harmonic spectrum.</figcaption>
-          </figure>
-          <figure class="figure">
-            <img src="assets/img/research/mcsa-correlation.png" alt="Heatmap of damage position and size correlation" loading="lazy">
-            <figcaption>Damage position/size correlation heatmap.</figcaption>
-          </figure>
-          <figure class="figure">
-            <img src="assets/img/research/mcsa-boxplot.png" alt="Box plot of frequency versus damaged position" loading="lazy">
-            <figcaption>Frequency vs damaged position box plot.</figcaption>
-          </figure>
-          <figure class="figure">
-            <video data-autoplay muted loop playsinline controls preload="none" poster="assets/video/motor-propeller-test-poster.jpg" aria-label="Motor and propeller rotation test video">
-              <source src="assets/video/motor-propeller-test.mp4" type="video/mp4">
+        <div style="--row-h:170px;--row-cq:21.12cqw" class="gallery gallery--6">
+          <figure class="figure" style="--ar:2.608">
+<img alt="Definition of propeller tip damage cases" loading="lazy" src="assets/img/research/propeller-damage-definition.png"/>
+<figcaption>Propeller tip damage definition.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:2.108">
+<img alt="Propeller damage test bench with labeled components" loading="lazy" src="assets/img/research/propeller-test-setup.png"/>
+<figcaption>Propeller damage test bench.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.792">
+<img alt="k-th order harmonic spectrum of the DC-link current and torque for normal and damaged propellers" loading="lazy" src="assets/img/research/mcsa-harmonics.jpg"/>
+<figcaption>k-th order harmonic spectrum.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.778">
+<img alt="Photo of the propeller thrust test" loading="lazy" src="assets/img/research/propeller-thrust-test.jpg"/>
+<figcaption>Propeller thrust test.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.778">
+<video aria-label="Motor and propeller rotation test video" controls="" data-autoplay="" loop="" muted="" playsinline="" poster="assets/video/motor-propeller-test-poster.jpg" preload="none">
+<source src="assets/video/motor-propeller-test.mp4" type="video/mp4"/>
               Your browser does not support the video.
             </video>
-            <figcaption>Propeller rotation test measuring voltage, current, torque, thrust, and RPM.</figcaption>
-          </figure>
+<figcaption>Propeller rotation test measuring voltage, current, torque, thrust, and RPM.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.333">
+<img alt="Box plot of frequency versus damaged position" loading="lazy" src="assets/img/research/mcsa-boxplot.png"/>
+<figcaption>Frequency vs damaged position box plot.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.141">
+<img alt="Heatmap of damage position and size correlation" loading="lazy" src="assets/img/research/mcsa-correlation.png"/>
+<figcaption>Damage position/size correlation heatmap.</figcaption>
+</figure>
         </div>
         <div class="papers">
           <h4 class="papers__head">From the papers</h4>
@@ -522,24 +502,22 @@
       <article class="topic" id="battery-lipo">
         <p class="topic__tag">3-B · In collaboration with KARI</p>
         <h3>Lithium-polymer battery performance modeling</h3>
-        <div class="split split--reverse">
-          <div class="figure-grid">
-            <figure class="figure">
-              <img src="assets/img/research/battery-discharge-setup.png" alt="Battery discharge experiment setup" loading="lazy">
-              <figcaption>Battery discharge experiment setup.</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="assets/img/research/battery-gpr-surfaces.png" alt="Gaussian process regression surfaces of the equivalent circuit model parameters" loading="lazy">
-              <figcaption>Gaussian process regression surfaces of the equivalent circuit model parameters.</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="assets/img/research/battery-voltage-validation.png" alt="Voltage prediction compared with validation data" loading="lazy">
-              <figcaption>Voltage prediction validation.</figcaption>
-            </figure>
-          </div>
-          <div>
-            <p>A dynamic performance model predicts the available-capacity-based SOC and voltage of lithium-polymer batteries. Peukert's law, a first-order RC equivalent circuit model, and Gaussian process regression for parameter prediction are all configured from experiment data, and the model is evaluated against UAV flight-test data provided by KARI.</p>
-          </div>
+        <div class="topic__text">
+          <p>A dynamic performance model predicts the available-capacity-based SOC and voltage of lithium-polymer batteries. Peukert's law, a first-order RC equivalent circuit model, and Gaussian process regression for parameter prediction are all configured from experiment data, and the model is evaluated against UAV flight-test data provided by KARI.</p>
+        </div>
+        <div style="--row-h:230px;--row-cq:28.57cqw" class="gallery gallery--3">
+          <figure class="figure" style="--ar:1.942">
+<img alt="Battery discharge experiment setup" loading="lazy" src="assets/img/research/battery-discharge-setup.png"/>
+<figcaption>Battery discharge experiment setup.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.547">
+<img alt="Gaussian process regression surfaces of the equivalent circuit model parameters" loading="lazy" src="assets/img/research/battery-gpr-surfaces.png"/>
+<figcaption>Gaussian process regression surfaces of the equivalent circuit model parameters.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.780">
+<img alt="Voltage prediction compared with validation data" loading="lazy" src="assets/img/research/battery-voltage-validation.png"/>
+<figcaption>Voltage prediction validation.</figcaption>
+</figure>
         </div>
         <div class="papers">
           <h4 class="papers__head">From the papers</h4>
@@ -556,28 +534,26 @@
       <article class="topic" id="battery-liion">
         <p class="topic__tag">3-C · In collaboration with KARI</p>
         <h3>Electrothermal performance modeling of lithium-ion batteries</h3>
-        <div class="split">
-          <div class="figure-grid">
-            <figure class="figure">
-              <img src="assets/img/research/battery-chamber-setup.png" alt="Battery test setup inside a temperature chamber" loading="lazy">
-              <figcaption>Temperature chamber battery test setup.</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="assets/img/research/battery-voc-soc.png" alt="Open-circuit voltage versus SOC by ambient temperature" loading="lazy">
-              <figcaption>Open-circuit voltage (Voc) vs SOC by ambient temperature.</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="assets/img/research/cell-thermal-schematic.png" alt="Two-node thermal model schematic drawn on a cell photo" loading="lazy">
-              <figcaption>Two-node thermal model schematic.</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="assets/img/research/battery-electrothermal-result.png" alt="Predicted voltage and temperature compared with measurements" loading="lazy">
-              <figcaption>Voltage/temperature prediction result.</figcaption>
-            </figure>
-          </div>
-          <div>
-            <p>A dynamic model predicts the voltage and the core and surface temperature of lithium-ion batteries. A second-order RC equivalent circuit model and a two-node thermal model are parameterized by Gaussian process regression from experiments over multiple ambient temperatures and C-rates.</p>
-          </div>
+        <div class="topic__text">
+          <p>A dynamic model predicts the voltage and the core and surface temperature of lithium-ion batteries. A second-order RC equivalent circuit model and a two-node thermal model are parameterized by Gaussian process regression from experiments over multiple ambient temperatures and C-rates.</p>
+        </div>
+        <div style="--row-h:175px;--row-cq:21.74cqw" class="gallery gallery--4">
+          <figure class="figure" style="--ar:1.988">
+<img alt="Battery test setup inside a temperature chamber" loading="lazy" src="assets/img/research/battery-chamber-setup.png"/>
+<figcaption>Temperature chamber battery test setup.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.379">
+<img alt="Open-circuit voltage versus SOC by ambient temperature" loading="lazy" src="assets/img/research/battery-voc-soc.png"/>
+<figcaption>Open-circuit voltage (Voc) vs SOC by ambient temperature.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.104">
+<img alt="Two-node thermal model schematic drawn on a cell photo" loading="lazy" src="assets/img/research/cell-thermal-schematic.png"/>
+<figcaption>Two-node thermal model schematic.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.362">
+<img alt="Predicted voltage and temperature compared with measurements" loading="lazy" src="assets/img/research/battery-electrothermal-result.png"/>
+<figcaption>Voltage/temperature prediction result.</figcaption>
+</figure>
         </div>
         <p class="outputs">Related outputs: IEEE ITEC Conference (2026), KSAS conference (2026).</p>
       </article>
@@ -586,25 +562,23 @@
       <article class="topic" id="hil">
         <p class="topic__tag">3-D · KARI project</p>
         <h3>Hardware-in-the-loop simulation of a fuel-cell hybrid propulsion system</h3>
-        <div class="split split--reverse">
-          <div class="figure-grid">
-            <figure class="figure">
-              <img src="assets/img/research/hil-ground-test.jpg" alt="Fuel-cell hybrid hardware-in-the-loop ground test platform" loading="lazy">
-              <figcaption>Fuel-cell hybrid HIL ground test platform.</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="assets/img/research/hil-architecture.png" alt="Architecture of the hardware-in-the-loop system" loading="lazy">
-              <figcaption>HIL system architecture.</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="assets/img/research/hil-evtol-concept.png" alt="eVTOL concept used for the hardware-in-the-loop test" loading="lazy">
-              <figcaption>eVTOL concept for the HIL test.</figcaption>
-            </figure>
-          </div>
-          <div>
-            <p>A lift+cruise eVTOL concept uses a fuel cell–battery hybrid: the lift propellers run on the battery in axial flight and the pusher propeller on the fuel cell in cruise. The hardware-in-the-loop (HIL) ground test platform combines PX4/Pixhawk, MATLAB/Simulink, and thrust/RPM/voltage/current sensing, and a physics-based 1-D fuel-cell model is compared with the experimental data.</p>
-            <p class="topic__collab">Project: <strong>Ground performance test of a hydrogen fuel-cell hybrid power source</strong> (수소연료전지 하이브리드 동력원 지상성능시험), KARI, 2023.08 – 2023.12. See <a href="projects.html">Projects</a>.</p>
-          </div>
+        <div class="topic__text">
+          <p>A lift+cruise eVTOL concept uses a fuel cell–battery hybrid: the lift propellers run on the battery in axial flight and the pusher propeller on the fuel cell in cruise. The hardware-in-the-loop (HIL) ground test platform combines PX4/Pixhawk, MATLAB/Simulink, and thrust/RPM/voltage/current sensing, and a physics-based 1-D fuel-cell model is compared with the experimental data.</p>
+          <p class="topic__collab">Project: <strong>Ground performance test of a hydrogen fuel-cell hybrid power source</strong> (수소연료전지 하이브리드 동력원 지상성능시험), KARI, 2023.08 – 2023.12. See <a href="projects.html">Projects</a>.</p>
+        </div>
+        <div style="--row-h:180px;--row-cq:22.36cqw" class="gallery gallery--3">
+          <figure class="figure" style="--ar:2.877">
+<img alt="Architecture of the hardware-in-the-loop system" loading="lazy" src="assets/img/research/hil-architecture.png"/>
+<figcaption>HIL system architecture.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.574">
+<img alt="Fuel-cell hybrid hardware-in-the-loop ground test platform" loading="lazy" src="assets/img/research/hil-ground-test.jpg"/>
+<figcaption>Fuel-cell hybrid HIL ground test platform.</figcaption>
+</figure>
+          <figure class="figure" style="--ar:1.354">
+<img alt="eVTOL concept used for the hardware-in-the-loop test" loading="lazy" src="assets/img/research/hil-evtol-concept.png"/>
+<figcaption>eVTOL concept for the HIL test.</figcaption>
+</figure>
         </div>
         <p class="outputs">Related outputs: 한국항공우주학회지 (2026), KSAS conference (2025).</p>
       </article>
@@ -719,6 +693,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20261101k"></script>
+<script src="assets/js/main.js?v=20261101l"></script>
 </body>
 </html>

@@ -47,7 +47,7 @@
 
   // Reveal on scroll: tag common blocks automatically (only when the observer exists, so no-JS pages stay visible)
   if ('IntersectionObserver' in window && !reduceMotion) {
-    var autoSel = '.topic, .card, .person, .award, .pillar, .pub-group, .timeline__item, .stat, .paper, .section__head, .figure-grid > .figure, .split > *, .vision__list, .vision > .figure, .contact, .news__feature, .news__list, .pi, .group-head, .pillar-block__label';
+    var autoSel = '.topic, .card, .person, .award, .pillar, .pub-group, .timeline__item, .stat, .paper, .section__head, .figure-grid > .figure, .gallery > .figure, .split > *, .vision__list, .vision > .figure, .contact, .news__feature, .news__list, .pi, .group-head, .pillar-block__label';
     document.querySelectorAll(autoSel).forEach(function (el) {
       if (el.closest('.hero') || el.closest('.nav') || el.closest('.popup')) return;
       if (!el.classList.contains('reveal')) el.classList.add('reveal');
