@@ -504,22 +504,23 @@ a.card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: v
 @keyframes marquee { to { transform: translateX(-100%); } }
 
 /* Hero: statement + annotated fleet figure + sizing log */
-.hero { min-height: min(100svh, 980px); padding: calc(var(--nav-h) + 3rem) 0 4.5rem; }
+.hero { min-height: auto; padding: calc(var(--nav-h) + 3rem) 0 4.5rem; }
 .hero::before { opacity: .28; }
-.hero__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; position: relative; z-index: 1; }
-.hero__content { max-width: 620px; }
-.hero__side { display: block; }
+.hero__stack { position: relative; z-index: 1; display: grid; gap: clamp(2rem, 4vw, 3.2rem); }
+.hero__content { max-width: 780px; }
 .hero__demo { position: relative; margin: 0; padding: .9rem .6rem .4rem; border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); background: rgba(255,255,255,.04); }
 .sentinel { height: 1px; }
-.focus { background: var(--blue); color: #fff; font-size: .74rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
-.focus__inner { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.3rem; padding: .95rem 0; }
-.focus__label { color: #ffb565; margin-right: .3rem; white-space: nowrap; }
-.focus__list { display: flex; flex-wrap: wrap; gap: .5rem 1.3rem; list-style: none; margin: 0; padding: 0; }
-.focus__list li + li::before { content: "/" / ""; margin-right: 1.3rem; opacity: .45; }
-@media (min-width: 1001px) { .focus__inner, .focus__list { flex-wrap: nowrap; } }
-@media (max-width: 1000px) { .focus__label { flex-basis: 100%; } .focus__list { gap: .45rem; } .focus__list li { background: rgba(255,255,255,.12); border-radius: 999px; padding: .3rem .7rem; font-size: .7rem; } .focus__list li + li::before { content: none; margin: 0; } }
+.focus { background: var(--blue); color: #fff; font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.focus__inner { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; padding: .9rem 0; }
+.focus__label { color: #ffb565; margin-right: .2rem; white-space: nowrap; }
+.focus__list { display: flex; flex-wrap: wrap; gap: .5rem .95rem; list-style: none; margin: 0; padding: 0; }
+.focus__list li { white-space: nowrap; }
+.focus__list li + li::before { content: "/" / ""; margin-right: .95rem; opacity: .45; }
+@media (min-width: 1181px) { .focus__inner, .focus__list { flex-wrap: nowrap; } .focus__inner { width: min(calc(100% - var(--pad) * 2), 1240px); } .focus { font-size: .7rem; } }
+@media (min-width: 1181px) and (max-width: 1365px) { .focus { font-size: .64rem; letter-spacing: .02em; } .focus__list { gap: .5rem .7rem; } .focus__list li + li::before { margin-right: .7rem; } }
+@media (max-width: 1180px) { .focus__label { flex-basis: 100%; } .focus__list { gap: .45rem; } .focus__list li { background: rgba(255,255,255,.12); border-radius: 999px; padding: .3rem .7rem; font-size: .7rem; } .focus__list li + li::before { content: none; margin: 0; } }
 .section--top { padding-top: clamp(3rem, 6vw, 5rem); }
-@media (max-width: 980px) { .hero__grid { grid-template-columns: 1fr; } .hero__content { max-width: none; } .hero { min-height: auto; } }
+@media (max-width: 980px) { .hero__content { max-width: none; } }
 @media (max-width: 980px) { .hero__scroll { display: none; } }
 
 /* Glass header over the hero; solid after the sentinel */
@@ -644,5 +645,12 @@ html:not(.js) .nav__links a { color: var(--ink-2); }
 .hero-fleet text, .config-figure text { font-family: var(--font); }
 .figure--svg svg { border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; }
 @media (max-width: 700px) { .figure--svg { overflow-x: auto; -webkit-overflow-scrolling: touch; } .figure--svg svg { min-width: 680px; } }
-@media (max-width: 600px) { .hero-fleet .lbl-num { display: none; } .hero-fleet .lbl-name { font-size: 19px; } }
+.hero-fleet--tall { display: none; }
+@media (max-width: 700px) { .hero-fleet--wide { display: none; } .hero-fleet--tall { display: block; } .hero-fleet--tall .lbl-num { display: none; } .hero-fleet--tall .lbl-name { font-size: 19px; } }
 @media (prefers-reduced-motion: reduce) { .spin { animation: none !important; } }
+
+.hero__cap { margin: .5rem .2rem 0; font-size: .8rem; color: rgba(255,255,255,.6); }
+.hero__demo { padding: 1rem .8rem .6rem; }
+
+.hero__stack > * { min-width: 0; }
+.hero__demo svg { max-width: 100%; }
