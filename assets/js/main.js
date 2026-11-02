@@ -203,6 +203,7 @@
     var pubs = Array.prototype.slice.call(document.querySelectorAll('.pub'));
     var groups = Array.prototype.slice.call(document.querySelectorAll('.pub-group'));
     var chips = Array.prototype.slice.call(filters.querySelectorAll('.chip[data-filter]'));
+    var known = chips.map(function (c) { return c.getAttribute('data-filter'); });   // a #f= link may only name these
     var clearBtn = document.getElementById('filter-clear'), countEl = document.getElementById('filter-count');
     var active = { type: [], year: [], tag: [] };
     function apply() {
@@ -239,7 +240,7 @@
     function fromHash() {
       if (location.hash.indexOf('#f=') !== 0) return;
       active = { type: [], year: [], tag: [] };
-      location.hash.slice(3).split(',').forEach(function (kv) { var p = kv.split(':'); if (active[p[0]] && p[1] && active[p[0]].indexOf(p[1]) < 0) active[p[0]].push(p[1]); });
+      location.hash.slice(3).split(',').forEach(function (kv) { var p = kv.split(':'); if (known.indexOf(kv) > -1 && active[p[0]].indexOf(p[1]) < 0) active[p[0]].push(p[1]); });
       apply();
     }
     window.addEventListener('hashchange', fromHash);
